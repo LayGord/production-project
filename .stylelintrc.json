@@ -1,0 +1,10 @@
+{
+    "extends": "stylelint-config-standard-scss",
+    "ignoreFiles": ["./build/**/*.css", "./node_modules/**/*.css", "./dist/**/*.css", "**/*.js", "**/*.jsx"],
+    
+    "rules": {
+        "selector-class-pattern": null,
+        "indentation": [4]
+    }
+
+}
