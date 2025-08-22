@@ -2,5 +2,6 @@
   "welcomeMessage": "Welcome!",
   "language": "English",
   "navbar.main": "Main",
-  "navbar.about": "About"
+  "navbar.about": "About",
+  "pageNotFoundMessage": "Page not found!"
 }

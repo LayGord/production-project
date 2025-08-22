@@ -42,7 +42,7 @@ module.exports = {
         'arrow-body-style': 'off',
         'no-use-before-define': 'off',
         'import/newline-after-import': 'off',
-        'max-len': ['error', { ignoreComments: true }],
+        'max-len': ['error', { code: 100, ignoreComments: true }],
     },
     globals: {
         __IS_DEV__: true,

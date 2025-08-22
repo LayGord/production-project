@@ -18,4 +18,5 @@
 "editor.codeActionsOnSave": {
     "source.fixAll.stylelint": "explicit"
 },
+"i18n-ally.keystyle": "flat",
 }

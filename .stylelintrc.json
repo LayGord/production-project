@@ -4,7 +4,8 @@
     
     "rules": {
         "selector-class-pattern": null,
-        "indentation": [4]
+        "indentation": [4],
+        "number-max-precision": null
     }
 
 }
