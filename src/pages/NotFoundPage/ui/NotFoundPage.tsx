@@ -12,7 +12,7 @@ export const NotFoundPage = ({ className }: NotFoundPageProps) => {
         <div
             className={classNames(cls.NotFoundPage, {}, [className])}
         >
-            { t('pageNotFoundMessage') }
+            { t('pageNotFound.message') }
         </div>
     );
 };

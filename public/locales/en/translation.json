@@ -3,7 +3,7 @@
   "language": "English",
   "navbar.main": "Main",
   "navbar.about": "About",
-  "pageNotFoundMessage": "Page not found!",
-  "unknownErrorMessage": "Something went wrong...",
+  "pageNotFound.message": "Page not found!",
+  "unknownError.message": "Something went wrong...",
   "reloadPage": "Reload page"
 }

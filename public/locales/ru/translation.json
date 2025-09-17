@@ -3,7 +3,7 @@
   "language": "Русский",
   "navbar.about": "О сайте",
   "navbar.main": "Главная",
-  "pageNotFoundMessage": "Страница не найдена!",
-  "unknownErrorMessage": "Что-то пошло не так...",
+  "pageNotFound.message": "Страница не найдена!",
+  "unknownError.message": "Что-то пошло не так...",
   "reloadPage": "Перезагрузить страницу"
 }
