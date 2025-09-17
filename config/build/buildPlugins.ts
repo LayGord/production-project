@@ -8,7 +8,7 @@ import { BuildOptions } from './types/config';
 export function buildPlugins(
     { paths, isDev, analyze }: BuildOptions,
 ): webpack.WebpackPluginInstance[] {
-    return [
+    const plugins = [
         new HtmlWebpackPlugin({
             template: paths.html,
         }),
@@ -20,12 +20,23 @@ export function buildPlugins(
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
         }),
-        new ReactRefreshWebpackPlugin({
-            overlay: false,
-        }),
-        new webpack.HotModuleReplacementPlugin(),
-        new BundleAnalyzerPlugin({
-            analyzerMode: analyze ? 'server' : 'disabled',
-        }),
+
     ];
+
+    if (isDev) {
+        plugins.push(new ReactRefreshWebpackPlugin({
+            overlay: false,
+        }));
+        plugins.push(new webpack.HotModuleReplacementPlugin());
+    }
+
+    if (analyze) {
+        plugins.push(
+            new BundleAnalyzerPlugin({
+                analyzerMode: analyze ? 'server' : 'disabled',
+            }),
+        );
+    }
+
+    return plugins;
 }
