@@ -1,6 +1,7 @@
 {
   "welcomeMessage": "Добро пожаловать!",
   "language": "Русский",
+  "language.short": "РУ",
   "navbar.about": "О сайте",
   "navbar.main": "Главная",
   "pageNotFound.message": "Страница не найдена!",

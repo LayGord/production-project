@@ -1,6 +1,7 @@
 {
   "welcomeMessage": "Welcome!",
   "language": "English",
+  "language.short": "EN",
   "navbar.main": "Main",
   "navbar.about": "About",
   "pageNotFound.message": "Page not found!",
