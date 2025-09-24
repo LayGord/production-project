@@ -5,7 +5,9 @@ import cls from './Button.module.scss';
 export enum ButtonTheme {
     CLEAR = 'clear',
     OUTLINE = 'outline',
-    SECONDARY = 'clear-secondary',
+    OUTLINE_INVERTED = 'outline-inverted',
+    OUTLINE_SECONDARY = 'outline-secondary',
+    CLEAR_SECONDARY = 'clear-secondary',
     BACKGROUND = 'background',
     BACKGROUND_INVERTED = 'background-inverted',
 }

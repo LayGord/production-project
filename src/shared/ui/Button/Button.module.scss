@@ -25,6 +25,18 @@
     background: none;
 }
 
+.outline-inverted {
+    border: 2px solid var(--inverted-primary-color);
+    color: var(--inverted-primary-color);
+    background: none;
+}
+
+.outline-secondary {
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    background: none;
+}
+
 .background {
     background: var(--bg-color);
     border: none;

@@ -19,7 +19,7 @@ export const PageError = ({ className }: PageErrorProps) => {
             {t('unknownError.message')}
             <Button
                 onClick={doReload}
-                theme={ButtonTheme.SECONDARY}
+                theme={ButtonTheme.CLEAR_SECONDARY}
             >
                 {t('reloadPage')}
             </Button>

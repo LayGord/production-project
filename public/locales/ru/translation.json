@@ -6,5 +6,6 @@
   "navbar.main": "Главная",
   "pageNotFound.message": "Страница не найдена!",
   "unknownError.message": "Что-то пошло не так...",
-  "reloadPage": "Перезагрузить страницу"
+  "reloadPage": "Перезагрузить страницу",
+  "navbar.signIn": "Войти"
 }

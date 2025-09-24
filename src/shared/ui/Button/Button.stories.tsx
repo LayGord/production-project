@@ -26,10 +26,28 @@ Clear.args = {
     theme: ButtonTheme.CLEAR,
 };
 
+export const ClearSecondary = Template.bind({});
+ClearSecondary.args = {
+    children: 'text',
+    theme: ButtonTheme.CLEAR_SECONDARY,
+};
+
 export const Outline = Template.bind({});
 Outline.args = {
     children: 'text',
     theme: ButtonTheme.OUTLINE,
+};
+
+export const OutlineInverted = Template.bind({});
+OutlineInverted.args = {
+    children: 'text',
+    theme: ButtonTheme.OUTLINE_INVERTED,
+};
+
+export const OutlineSecondary = Template.bind({});
+OutlineSecondary.args = {
+    children: 'text',
+    theme: ButtonTheme.OUTLINE_SECONDARY,
 };
 
 export const OutlineL = Template.bind({});
