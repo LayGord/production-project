@@ -7,25 +7,6 @@
     z-index: -1;
     opacity: 0;
     pointer-events: none;
-    color: var(--primary-color);
-}
-
-.Modal.light {
-    --bg-color: #fff;
-    --inverted-bg-color: #2a3035;
-    --primary-color: #111215;
-    --secondary-color: #b6c2cf;
-    --inverted-primary-color: #dee4ea;
-    --inverted-secondary-color: #b6c2cf;
-}
-
-.Modal.dark {
-    --bg-color: #121318;
-    --inverted-bg-color: #181820;
-    --primary-color: #dee3f4;
-    --secondary-color: #a7aad7;
-    --inverted-primary-color: #21222c;
-    --inverted-secondary-color: #444ea4;
 }
 
 .overlay {
