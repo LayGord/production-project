@@ -19,4 +19,5 @@
     "source.fixAll.stylelint": "explicit"
 },
 "i18n-ally.keystyle": "flat",
+"files.eol": "\n",
 }
