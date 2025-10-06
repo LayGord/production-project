@@ -3,8 +3,7 @@
 @import "./variables/global";
 @import "./reset";
 
-.app,
-.app_modal {
+body {
     font: var(--font-m);
     color: var(--primary-color);
 }
