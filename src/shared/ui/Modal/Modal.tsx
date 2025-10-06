@@ -23,8 +23,6 @@ export const Modal = (props: ModalProps) => {
         onClose,
     } = props;
 
-    const { theme } = useTheme(); // УБРАТЬ ПОТОМ
-
     const [isClosing, setIsClosing] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
@@ -32,6 +30,8 @@ export const Modal = (props: ModalProps) => {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
     };
+
+    const { theme } = useTheme();
 
     const contentClickHandler = (e: React.MouseEvent) => {
         e.stopPropagation();
@@ -66,7 +66,7 @@ export const Modal = (props: ModalProps) => {
 
     return (
         <Portal>
-            <div className={classNames(cls.Modal, mods, [className])}>
+            <div className={classNames(cls.Modal, mods, [className, theme])}>
                 <div
                     className={cls.overlay}
                     onClick={closeHandler}
