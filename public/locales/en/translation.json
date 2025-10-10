@@ -7,5 +7,7 @@
   "pageNotFound.message": "Page not found!",
   "unknownError.message": "Something went wrong...",
   "reloadPage": "Reload page",
-  "navbar.signIn": "Sign in"
+  "navbar.signIn": "Sign in",
+  "username": "Username",
+  "password": "Password"
 }

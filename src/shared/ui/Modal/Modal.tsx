@@ -11,6 +11,7 @@ interface ModalProps {
     children?: ReactNode;
     isOpen?: boolean;
     onClose?: () => void;
+    lazy?: boolean;
 }
 
 const ANIMATION_DELAY_MS = 50;
@@ -21,9 +22,11 @@ export const Modal = (props: ModalProps) => {
         children,
         isOpen,
         onClose,
+        lazy,
     } = props;
 
     const [isClosing, setIsClosing] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
     const mods: Record<string, boolean> = {
@@ -36,6 +39,12 @@ export const Modal = (props: ModalProps) => {
     const contentClickHandler = (e: React.MouseEvent) => {
         e.stopPropagation();
     };
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+        }
+    }, [isOpen]);
 
     const closeHandler = useCallback(() => {
         if (onClose) {
@@ -63,6 +72,12 @@ export const Modal = (props: ModalProps) => {
             window.removeEventListener('keydown', keyDownHandler);
         };
     }, [isOpen, keyDownHandler]);
+
+    // для ленивой загрузки модалки (если передан флаг lazy)
+    // не вмонитруется в DOM, если передан флаг lazy и модалка не открывалась ни разу,
+    if (lazy && !isMounted) {
+        return null;
+    }
 
     return (
         <Portal>

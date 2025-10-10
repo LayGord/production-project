@@ -7,5 +7,7 @@
   "pageNotFound.message": "Страница не найдена!",
   "unknownError.message": "Что-то пошло не так...",
   "reloadPage": "Перезагрузить страницу",
-  "navbar.signIn": "Войти"
+  "navbar.signIn": "Войти",
+  "username": "Имя пользователя",
+  "password": "Пароль"
 }
