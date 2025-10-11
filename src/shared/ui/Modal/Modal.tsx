@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import React, {
     ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
-import { useTheme } from 'app/providers/ThemeProvider'; // УБРАТЬ ПОТОМ
+import { useTheme } from 'app/providers/ThemeProvider';
 import cls from './Modal.module.scss';
 import { Portal } from '../Portal/Portal';
 
@@ -26,25 +26,19 @@ export const Modal = (props: ModalProps) => {
     } = props;
 
     const [isClosing, setIsClosing] = useState(false);
-    const [isMounted, setIsMounted] = useState(false);
+    const [isMounted, setIsMounted] = useState(false); // for lazy
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
+    const { theme } = useTheme();
 
     const mods: Record<string, boolean> = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
     };
 
-    const { theme } = useTheme();
-
+    // чтобы клики по модалке не всплывали в overlay
     const contentClickHandler = (e: React.MouseEvent) => {
         e.stopPropagation();
     };
-
-    useEffect(() => {
-        if (isOpen) {
-            setIsMounted(true);
-        }
-    }, [isOpen]);
 
     const closeHandler = useCallback(() => {
         if (onClose) {
@@ -61,6 +55,12 @@ export const Modal = (props: ModalProps) => {
             closeHandler();
         }
     }, [closeHandler]);
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+        }
+    }, [isOpen]);
 
     useEffect(() => {
         if (isOpen) {
