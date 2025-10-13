@@ -5,7 +5,7 @@ import { Input } from 'shared/ui/Input/Input';
 import { memo, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Text, TextThemes } from 'shared/ui/Text/Text';
-import { loginActions, loginReducer } from '../../model/slice/loginSlice';
+import { loginActions } from '../../model/slice/loginSlice';
 import cls from './LoginForm.module.scss';
 import { getLoginState } from '../../model/selectors/getLoginState';
 import { loginByUsername } from '../../model/services/loginByUsername';
@@ -38,7 +38,7 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
             className={classNames(cls.LoginForm, {}, [className])}
         >
             <Text title={t('loginForm')} />
-            {error && <Text theme={TextThemes.ERROR} text={error} />}
+            {error && <Text theme={TextThemes.ERROR} text={t('incorrectCredsMessage')} />}
             <Input
                 className={cls.input}
                 type="text"

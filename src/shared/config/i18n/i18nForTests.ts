@@ -8,7 +8,9 @@ i18n
         fallbackLng: 'ru',
 
         debug: false,
-
+        react: {
+            useSuspense: false,
+        },
         interpolation: {
             escapeValue: false, // not needed for react!!
         },
