@@ -9,6 +9,7 @@ i18n
     .use(LanguageDetector)
     .use(initReactI18next)
     .init({
+        lng: 'ru', // включаем на ui тестах чтобы сторибук собрался
         fallbackLng: 'ru',
         debug: __IS_DEV__,
 

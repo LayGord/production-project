@@ -9,5 +9,9 @@
   "reloadPage": "Reload page",
   "navbar.signIn": "Sign in",
   "username": "Username",
-  "password": "Password"
+  "password": "Password",
+  "loginForm": "Login",
+  "loginFormError": "Error occured",
+  "navbar.signOut": "Sing out",
+  "incorrectCredsMessage": "Incorrect username or password"
 }

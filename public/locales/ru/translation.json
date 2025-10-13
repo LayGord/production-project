@@ -9,5 +9,9 @@
   "reloadPage": "Перезагрузить страницу",
   "navbar.signIn": "Войти",
   "username": "Имя пользователя",
-  "password": "Пароль"
+  "password": "Пароль",
+  "loginForm": "Авторизация",
+  "loginFormError": "Ошибка",
+  "navbar.signOut": "Выйти",
+  "incorrectCredsMessage": "Неверное имя пользователя или пароль"
 }

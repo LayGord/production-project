@@ -1,3 +1,2 @@
-lint:ts
-lint:scss
-test:unit
+npm run lint:ts
+npm run lint:scss
