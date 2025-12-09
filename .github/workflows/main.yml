@@ -6,7 +6,7 @@ on:
     pull_request:
         branches: [ master ]
     workflow_dispatch:
-      
+
 jobs:
     pipeline:
         runs-on: ubuntu-latest
@@ -24,19 +24,19 @@ jobs:
             run: npm install
           - name: Build project (production-build)
             run: npm run build:prod
-            if: always()
+            
           - name: Lint TS
             run: npm run lint:ts
-            if: always()
+            
           - name: Lint SCSS
             run: npm run lint:scss
-            if: always()
+            
           - name: Unit testing
             run: npm run test:unit
-            if: always()
+            
           - name: Build storybook
             run: npm run storybook:build
-            if: always()
+            
           - name: Screenshot testing
             run: npm run test:ui:ci
-            if: always()
+            
