@@ -43,5 +43,5 @@ jobs:
             run: npm run storybook:build
             
           - name: Screenshot testing
-            run: npx loki --config loki.ci.config.js --requireReference --reactUri file:./storybook-static
+            run: npm run test:ui:ci
             
