@@ -15,7 +15,7 @@
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "npx loki test --config loki.config.js --targetFilter=\"^chrome.docker$\"",
     "test:ui:ok": "cross-env LOKI_CONFIGURATIONS=chrome.laptop,chrome.iphone7 npx loki --config loki.config.js approve",
-    "test:ui:ci": "npx loki --config loki.config.js test --requireReference --reactUri file:./storybook-static --targetFilter=\"^chrome.app$\"",
+    "test:ui:ci": "npx loki --config loki.config.js test --requireReference --reactUri file:./storybook-static --targetFilter=\"^chrome.docker$\"",
     "test:ui:json": "node ./scripts/generate-visual-json-report.js",
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
