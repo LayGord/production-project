@@ -13,7 +13,7 @@ module.exports = {
             preset: 'iPhone 7',
         },
 
-        // CI-пресеты без Docker
+        // CI-пресеты  / на случай если docker умэр, ставим chrome.app в таргете в CI и в локальном
         'chrome-ci.laptop': {
             target: 'chrome.app',
             width: 1366,
@@ -21,7 +21,7 @@ module.exports = {
         },
         'chrome-ci.iphone7': {
             target: 'chrome.app',
-            preset: 'Iphone 7',
+            preset: 'iPhone 7',
         },
     },
 };
