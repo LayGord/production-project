@@ -1,0 +1,19 @@
+{
+  "navbar": {
+    "main_page": "Main",
+    "about_page": "About"
+  },
+  "langSwitcher": {
+    "language": "Eng"
+  },
+  "notFoundPage": {
+    "message": "Page not found ..."
+  },
+  "PageError": {
+    "message": "Something went wrong...",
+    "reloadBtnText": "Reload page"
+  },
+  "BugButton": {
+    "text": "DO ERROR"
+  }
+}

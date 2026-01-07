@@ -1,0 +1,19 @@
+{
+  "navbar": {
+    "main_page": "Главная",
+    "about_page": "О нас"
+  },
+  "langSwitcher": {
+    "language": "Рус"
+  },
+  "notFoundPage": {
+    "message": "Страница не найдена..."
+  },
+  "PageError": {
+    "message": "Что-то пошло не так...",
+    "reloadBtnText": "Перезагрузить страницу"
+  },
+  "BugButton": {
+    "text": "ОШИБКА"
+  }
+}

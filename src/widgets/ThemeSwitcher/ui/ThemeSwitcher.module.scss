@@ -1,0 +1,10 @@
+.ThemeSwitcher svg {
+
+    &.iconLight {
+        fill: var(--theme-light-icon-color);
+    };
+
+    &.iconDark {
+        fill: var(--theme-dark-icon-color)
+    }
+}

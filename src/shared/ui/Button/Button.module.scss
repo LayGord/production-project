@@ -1,0 +1,34 @@
+.Button {
+    color: var(--primary-color);
+}
+
+.primary {
+    color: var(--primary-color);
+}
+
+.clear {
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.clear-inverted {
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    background: none;
+    color: var(--inverted-primary-color);
+}
+
+.icon {
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    background: none;
+    text-align: center;
+    height: 24px;
+}
