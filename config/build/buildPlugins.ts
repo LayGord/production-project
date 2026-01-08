@@ -20,12 +20,13 @@ export function buildPlugins(buildOptions: BuildOptions): webpack.WebpackPluginI
         new DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
         }),
-        new BundleAnalyzerPlugin({openAnalyzer: false})
     ];
 
     // only on devserver
-    const refreshPlugin = isDev ? new ReactRefreshWebpackPlugin({overlay: false}) : undefined;
-    if (refreshPlugin) {plugins.push(refreshPlugin)};
+    if (isDev) {
+        plugins.push(new ReactRefreshWebpackPlugin({overlay: false}));
+        plugins.push(new BundleAnalyzerPlugin({openAnalyzer: false}))
+    };
 
     return plugins;
 }
