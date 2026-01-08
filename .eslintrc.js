@@ -49,7 +49,7 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
         'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
         'no-param-reassign': 'off',
-        "i18next/no-literal-string": ['error', {markupOnly: true, ignoreAttribute: ['data-testid']}],
+        "i18next/no-literal-string": ['error', {markupOnly: true, ignoreAttribute: ['data-testid', 'to']}],
     },
     globals: {
         __IS_DEV__: true,

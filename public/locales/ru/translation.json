@@ -4,7 +4,8 @@
     "about_page": "О нас"
   },
   "langSwitcher": {
-    "language": "Рус"
+    "language_short": "Ру",
+    "language_full": "Русский"
   },
   "notFoundPage": {
     "message": "Страница не найдена..."

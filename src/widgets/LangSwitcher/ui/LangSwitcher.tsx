@@ -6,9 +6,10 @@ import cls from "./LangSwitcher.module.scss";
 
 interface LangSwitcherProps {
     className?: string;
+    shortLngDisplay?: boolean;
 }
 
-export const LangSwitcher = ({ className }: LangSwitcherProps) => {
+export const LangSwitcher = ({ className, shortLngDisplay = true }: LangSwitcherProps) => {
     const { t, i18n } = useTranslation();
     const changeLang = async () => {
         i18n.changeLanguage(
@@ -24,7 +25,13 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
             theme={ButtonTheme.ICON}
         >
             <LngIcon />
-            {t('langSwitcher.language')}
+            <span>
+                {
+                    shortLngDisplay 
+                        ? t('langSwitcher.language_short')
+                        : t('langSwitcher.language_full')
+                }
+            </span>
         </Button>
     );
 };

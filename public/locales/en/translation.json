@@ -4,7 +4,8 @@
     "about_page": "About"
   },
   "langSwitcher": {
-    "language": "Eng"
+    "language_short": "En",
+    "language_full": "English"
   },
   "notFoundPage": {
     "message": "Page not found ..."
