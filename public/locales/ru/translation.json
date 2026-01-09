@@ -1,7 +1,8 @@
 {
   "navbar": {
     "main_page": "Главная",
-    "about_page": "О нас"
+    "about_page": "О нас",
+    "login": "Войти"
   },
   "langSwitcher": {
     "language_short": "Ру",

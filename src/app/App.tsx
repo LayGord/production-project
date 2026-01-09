@@ -3,7 +3,9 @@ import { AppRouter } from './providers/routerProvider';
 import { Sidebar } from 'widgets/Sidebar';
 import { Suspense } from 'react';
 
+
 const App = () => {
+    
     return (
         // eslint-disable-next-line i18next/no-literal-string
         <Suspense fallback={<div>Loading translations...</div>}>
