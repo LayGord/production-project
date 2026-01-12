@@ -17,5 +17,11 @@
   },
   "BugButton": {
     "text": "ОШИБКА"
+  },
+  "counter": {
+    "decrementBtn": "Декремент",
+    "incrementBtn": "Инкремент",
+    "title": "Счетчик (тестовый комп-т)",
+    "count": "Счетчик = "
   }
 }

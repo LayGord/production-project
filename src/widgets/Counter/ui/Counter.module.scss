@@ -1,0 +1,15 @@
+.Counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid var(--primary-color);
+    border-radius: 6px;
+    margin-inline: 35%;
+    padding: 15px;
+}
+
+.btns {
+    display: flex;
+    flex-direction: row;
+}

@@ -2,7 +2,7 @@
   "navbar": {
     "main_page": "Main",
     "about_page": "About",
-    "login": "Sign in"
+    "login": "SignIn"
   },
   "langSwitcher": {
     "language_short": "En",
@@ -17,5 +17,11 @@
   },
   "BugButton": {
     "text": "DO ERROR"
+  },
+  "counter": {
+    "decrementBtn": "Decrement",
+    "incrementBtn": "Increment",
+    "title": "Counter (test component)",
+    "count": "Count = "
   }
 }
