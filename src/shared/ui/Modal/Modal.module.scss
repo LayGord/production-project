@@ -26,6 +26,7 @@
 
 .opened {
     opacity: 1;
+    transition: 0.2s opacity;
     z-index: var(--modal-z-index);
     pointer-events: all;
 
