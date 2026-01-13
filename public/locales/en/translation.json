@@ -1,14 +1,18 @@
 {
-  "navbar": {
+  "Navbar": {
     "main_page": "Main",
     "about_page": "About",
-    "login": "SignIn"
+    "login": "Login"
   },
-  "langSwitcher": {
+  "Sidebar": {
+    "main_page": "Main",
+    "about_page": "About"
+  },
+  "LangSwitcher": {
     "language_short": "En",
     "language_full": "English"
   },
-  "notFoundPage": {
+  "NotFoundPage": {
     "message": "Page not found ..."
   },
   "PageError": {
@@ -18,10 +22,16 @@
   "BugButton": {
     "text": "DO ERROR"
   },
-  "counter": {
+  "Counter": {
     "decrementBtn": "Decrement",
     "incrementBtn": "Increment",
     "title": "Counter (test component)",
     "count": "Count = "
+  },
+  "LoginForm": {
+    "header": "Log in",
+    "submitBtn": "Log in",
+    "plhrUsername": "Username",
+    "plhrPassword": "Password"
   }
 }

@@ -4,7 +4,7 @@ import cls from "./Modal.module.scss";
 import { Portal } from "../Portal/Portal";
 
 
-interface ModalProps {
+export interface ModalProps {
     className?: string;
     children?: ReactNode;
     isOpen?: boolean;

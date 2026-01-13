@@ -28,8 +28,8 @@ export const LangSwitcher = ({ className, shortLngDisplay = true }: LangSwitcher
             <span>
                 {
                     shortLngDisplay 
-                        ? t('langSwitcher.language_short')
-                        : t('langSwitcher.language_full')
+                        ? t('LangSwitcher.language_short')
+                        : t('LangSwitcher.language_full')
                 }
             </span>
         </Button>

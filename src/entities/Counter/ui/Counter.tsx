@@ -28,12 +28,12 @@ export const Counter = ({ className }: CounterProps) => {
             className={ classNames(cls.Counter, {}, [className]) }
             data-testid="counter"
         >
-            <span>{t('counter.title')}</span>
+            <span>{t('Counter.title')}</span>
             <div 
                 className={cls.result}
                 data-testid="counter-value"
             >
-                {t('counter.count')}
+                {t('Counter.count')}
                 {count}
             </div>
             <div className={cls.btns}>
@@ -42,14 +42,14 @@ export const Counter = ({ className }: CounterProps) => {
                     onClick={decrement}
                     data-testid="decrement-btn"
                 >
-                    {t('counter.decrementBtn')}
+                    {t('Counter.decrementBtn')}
                 </Button>
                 <Button
                     theme={ButtonTheme.OUTLINE}
                     onClick={increment}
                     data-testid="increment-btn"
                 >
-                    {t('counter.incrementBtn')}
+                    {t('Counter.incrementBtn')}
                 </Button>
             </div>
         </div>

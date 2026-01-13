@@ -1,28 +1,23 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Modal } from './Modal';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import { LoginForm } from './LoginForm';
+
 
 export default {
-    title: 'shared/Modal',
-    component: Modal,
+    title: 'features/LoginForm',
+    component: LoginForm,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof Modal>;
+} as ComponentMeta<typeof LoginForm>;
 
-const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
+const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {
-    isOpen: true,
-    children: 'modal content',
-};
+Primary.args = {};
 
 export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-    isOpen: true,
-    children: 'modal content',
-};
+PrimaryDark.args = {};
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];

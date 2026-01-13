@@ -1,0 +1,10 @@
+.Input {
+    width: 100%;
+    outline: none;
+    padding-block: 2px;
+    padding-inline: 6px;
+
+    &:focus {
+        outline: none;
+    }
+}

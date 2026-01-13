@@ -1,14 +1,18 @@
 {
-  "navbar": {
+  "Navbar": {
     "main_page": "Главная",
     "about_page": "О нас",
     "login": "Войти"
   },
-  "langSwitcher": {
+  "Sidebar": {
+    "main_page": "Главная",
+    "about_page": "О нас"
+  },
+  "LangSwitcher": {
     "language_short": "Ру",
     "language_full": "Русский"
   },
-  "notFoundPage": {
+  "NotFoundPage": {
     "message": "Страница не найдена..."
   },
   "PageError": {
@@ -18,10 +22,16 @@
   "BugButton": {
     "text": "ОШИБКА"
   },
-  "counter": {
+  "Counter": {
     "decrementBtn": "Декремент",
     "incrementBtn": "Инкремент",
     "title": "Счетчик (тестовый комп-т)",
     "count": "Счетчик = "
+  },
+  "LoginForm": {
+    "header": "Вход",
+    "submitBtn": "Войти",
+    "plhrUsername": "Имя пользователя",
+    "plhrPassword": "Пароль"
   }
 }
