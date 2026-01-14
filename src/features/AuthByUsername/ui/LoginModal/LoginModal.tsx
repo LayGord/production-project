@@ -11,12 +11,14 @@ export const LoginModal = (props: LoginModalProps) => {
         isOpen,
         onClose,
         className,
+        ...otherProps
     } = props;
     return (
         <Modal
             className={classNames(cls.LoginModal, {}, [className])}
             isOpen={isOpen}
             onClose={onClose}
+            {...otherProps}
         >
             <LoginForm />
         </Modal>

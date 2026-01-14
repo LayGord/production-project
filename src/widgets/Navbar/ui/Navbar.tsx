@@ -30,6 +30,7 @@ export const Navbar = ({ className }: NavbarProps) => {
                     {t('Navbar.login')}
                 </Button>
                 <LoginModal
+                    lazy
                     isOpen={isAuthModal}
                     onClose={onCloseAuthModal}
                 />

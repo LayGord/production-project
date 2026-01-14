@@ -1,10 +1,39 @@
 .Input {
     width: 100%;
+    position: relative;
+}
+
+.inputField {
+    width: 100%;
     outline: none;
-    padding-block: 2px;
-    padding-inline: 6px;
+    padding-block: 10px;
+    padding-inline: 10px;
+    border: 1px solid var(--primary-color);
+    background: none;
+    color: var(--primary-color);
 
     &:focus {
         outline: none;
     }
+}
+
+.placeholder {
+    position: absolute;
+    left: 0;
+    padding-inline: 10px;
+    padding-block: 10px;
+    font: var(--font-m);
+    transition: 0.2s padding-block;
+    transition: 0.2s font;
+    cursor: text;
+}
+
+.inputField:focus + .placeholder,
+.inputField:not(:placeholder-shown) + .placeholder {
+    padding-inline: 10px;
+    padding-block: 0;
+    font: var(--font-s);
+    transition: 0.2s padding-block;
+    transition: 0.2s font;
+    color: rgb(from var(--primary-color) r g b / 60%);
 }

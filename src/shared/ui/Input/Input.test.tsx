@@ -4,7 +4,7 @@ import { Input } from "./Input";
 describe('shared/Input', () => {
     test('default render', () => {
 
-        render(<Input />);
+        render(<Input id="test-input"/>);
         expect(screen.getByTestId('input')).toBeInTheDocument();
     });
 });

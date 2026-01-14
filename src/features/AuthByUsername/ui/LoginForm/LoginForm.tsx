@@ -20,11 +20,13 @@ export const LoginForm = ({ className }: LoginFormProps) =>{
                 {t('LoginForm.header')}
             </span>
             <Input
+                id="username"
                 className={cls.input}
                 type="text"
                 placeholder={t('LoginForm.plhrUsername')}
             />
             <Input
+                id="password"
                 className={cls.input}
                 type="text"
                 placeholder={t('LoginForm.plhrPassword')}

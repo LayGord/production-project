@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import { ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./Modal.module.scss";
 import { Portal } from "../Portal/Portal";
@@ -9,17 +9,20 @@ export interface ModalProps {
     children?: ReactNode;
     isOpen?: boolean;
     onClose?: () => void;
+    lazy?: boolean;
 }
 
 const ANIMATION_DELAY = 50;
 
-export const Modal = ({ className, children, isOpen, onClose }: ModalProps) => {
+export const Modal = ({ className, children, isOpen, onClose, lazy=false }: ModalProps) => {
 
-    const [isClosing, setIsClosing] = useState(false);
+    const [isClosing, setIsClosing] = useState(false); // for closing animation
+    const [isMounted, setIsMounted] = useState(false); // for lazy mounting
+    const [isVisible, setIsVisible] = useState(false); // instead of isOpen controls the cls.opened
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
-    const mods: Record<string, boolean> = {
-        [cls.opened]: isOpen,
+    const mods:  Record<string, boolean> = {
+        [cls.opened]: isVisible,
         [cls.isClosing]: isClosing,
     };
 
@@ -29,6 +32,7 @@ export const Modal = ({ className, children, isOpen, onClose }: ModalProps) => {
             timerRef.current = setTimeout(() => {
                 onClose();
                 setIsClosing(false)
+                setIsVisible(false);
             }, ANIMATION_DELAY)
         }
     }, [onClose]);
@@ -56,6 +60,27 @@ export const Modal = ({ className, children, isOpen, onClose }: ModalProps) => {
             clearTimeout(timerRef.current);
         }
     }, [isOpen, keyDownHandler]);
+
+   
+    // lazy modal mounting logic
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true)
+        } else {
+            setIsVisible(false);
+        }
+    }, [isOpen]);
+
+    useEffect(() => {
+        if (isOpen) {
+            const id = setTimeout(() => setIsVisible(true), 0);
+            return () => clearTimeout(id);
+        }
+    }, [isOpen]);
+
+    if (!isMounted && lazy) {
+        return null;
+    };
 
     return (
         <Portal>
