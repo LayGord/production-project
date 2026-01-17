@@ -22,7 +22,8 @@ body.dark {
 
     /* Состояния */
     --success-color: #34d399;      /* Ярче зеленый */
-    --error-color: #f87171;        /* Светлее красный */
+    --error-light: #f87171;  /* Светлее красный */
+    --error-dark: #e16262;
     --warning-color: #fbbf24;      /* Ярче желтый */
     --info-color: #60a5fa;         /* Ярче синий */
 }

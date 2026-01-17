@@ -1,0 +1,26 @@
+/* stylelint-disable-next-line block-no-empty */
+.Text {
+
+}
+
+.primary {
+    .titleBlock {
+        font: var(--font-l);
+        color: var(--primary-color);
+    }
+
+    .textBlock {
+        font: var(--font-m);
+        color: var(--secondary-color);
+    }
+}
+
+.error {
+    .titleBlock {
+        color: var(--error-light);
+    }
+
+    .textBlock {
+        color: var(--error-dark);
+    }
+}

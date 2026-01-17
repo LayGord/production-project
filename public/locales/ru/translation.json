@@ -2,7 +2,8 @@
   "Navbar": {
     "main_page": "Главная",
     "about_page": "О нас",
-    "login": "Войти"
+    "login": "Войти",
+    "logout": "Выйти"
   },
   "Sidebar": {
     "main_page": "Главная",
@@ -32,6 +33,9 @@
     "header": "Вход",
     "submitBtn": "Войти",
     "plhrUsername": "Имя пользователя",
-    "plhrPassword": "Пароль"
+    "plhrPassword": "Пароль",
+    "errors": {
+      "invalidCreds": "Неверно введено имя пользователя или пароль"
+    }
   }
 }

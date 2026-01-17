@@ -22,7 +22,8 @@ body.light {
 
     /* Состояния */
     --success-color: #10b981;      /* Успех */
-    --error-color: #ef4444;        /* Ошибка */
+    --error-light: #ef4444;  /* Ошибка */
+    --error-dark: #da3b3b;
     --warning-color: #f59e0b;      /* Предупреждение */
     --info-color: #3b82f6;         /* Информация */
 }
