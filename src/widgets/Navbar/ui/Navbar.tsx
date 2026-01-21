@@ -51,11 +51,16 @@ export const Navbar = ({ className }: NavbarProps) => {
                 >
                     {t('Navbar.login')}
                 </Button>
-                <LoginModal
-                    lazy
-                    isOpen={isAuthModal}
-                    onClose={onCloseAuthModal}
-                />
+                {   
+                    // тут можно как бы просто указать lazy модалке, но тогда не демонтируется loginFormReducer
+                    // ToDo: подумать как это еще можно сделать..
+                    isAuthModal &&
+                    <LoginModal
+                        isOpen={isAuthModal}
+                        onClose={onCloseAuthModal}
+                    />
+                }
+
             </div>
         </div>
     );
