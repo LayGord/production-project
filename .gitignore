@@ -1,5 +1,6 @@
 node_modules/
-dist/
+build/
 storybook-static/
 .loki/report.json
 .loki/report.html
+.vscode/
