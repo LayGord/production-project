@@ -9,7 +9,7 @@ import { Text, TextTheme } from "shared/ui/Text/Text";
 import { getLoginFormUsername } from "../../model/selectors/getLoginFormUsername/getLoginFormUsername";
 import { getLoginFormPassword } from "../../model/selectors/getLoginFormPassword/getLoginFormPassword";
 import { getLoginFormIsLoading } from "../../model/selectors/getLoginFormIsLoading/getLoginFormIsLoading";
-import { getLoginFormError } from "../../model/selectors/getLoginFormError/getLoginForm";
+import { getLoginFormError } from "../../model/selectors/getLoginFormError/getLoginFormError";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/DynamicModuleLoader/DynamicModuleLoader";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./LoginForm.module.scss";
