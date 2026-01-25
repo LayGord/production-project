@@ -3,6 +3,7 @@ import { loginByUsername } from "./loginByUsername"
 import { DeepPartial, Dispatch } from "@reduxjs/toolkit"
 import axios from "axios"
 import { User, userActions } from "entities/User";
+import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestasyncThunk";
 
 jest.mock("axios");
 const mockedAxios = jest.mocked(axios, true); // helper for ts
@@ -24,11 +25,11 @@ describe('loginByUsername.test', () => {
         const userData = {username: 'user', id: '1'};
         
         mockedAxios.post.mockReturnValue(Promise.resolve({data: userData}));
-        const action = loginByUsername({username: 'user', password: 'qwerty'});
-        const result = await action(dispatch, getState, undefined);
+        const thunk = new TestAsyncThunk(loginByUsername);
+        const result = await thunk.callThunk({username: 'user', password: 'qwerty'})
 
-        expect(dispatch).toHaveBeenCalledWith(userActions.setAuthData(userData))
-        expect(dispatch).toHaveBeenCalledTimes(3);
+        expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userData))
+        expect(thunk.dispatch).toHaveBeenCalledTimes(3);
         expect(mockedAxios.post).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
         expect(result.payload).toEqual(userData);
@@ -37,11 +38,11 @@ describe('loginByUsername.test', () => {
     test('error login', async () => {
         
         mockedAxios.post.mockReturnValue(Promise.resolve({status: 403}));
-        const action = loginByUsername({username: 'user', password: 'qwerty'});
-        const result = await action(dispatch, getState, undefined);
+        const thunk = new TestAsyncThunk(loginByUsername);
+        const result = await thunk.callThunk({username: 'user', password: 'qwerty'})
 
         expect(mockedAxios.post).toHaveBeenCalled();
-        expect(dispatch).toHaveBeenCalledTimes(2);
+        expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(result.meta.requestStatus).toBe('rejected');
         expect(result.payload).toBe('LoginForm.errors.invalidCreds');
     });
