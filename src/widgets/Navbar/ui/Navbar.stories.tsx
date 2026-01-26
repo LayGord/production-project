@@ -41,7 +41,7 @@ Authenticated.args = {};
 Authenticated.decorators = [
     RouterDecorator,
     StoreDecorator({
-        user: { authData: {id: 1, username: 'user1'}}
+        user: { authData: {id: '1', username: 'user1'}}
     })
 ];
 
@@ -51,6 +51,6 @@ AuthenticatedDark.decorators = [
     RouterDecorator,
     ThemeDecorator(Theme.DARK),
     StoreDecorator({
-        user: { authData: {id: 1, username: 'user1'}}
+        user: { authData: {id: '1', username: 'user1'}}
     })
 ];
