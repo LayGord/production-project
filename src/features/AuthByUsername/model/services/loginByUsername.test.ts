@@ -1,9 +1,9 @@
 import { StateSchema } from "app/providers/StoreProvider"
 import { loginByUsername } from "./loginByUsername"
-import { DeepPartial, Dispatch } from "@reduxjs/toolkit"
+import { Dispatch } from "@reduxjs/toolkit"
 import axios from "axios"
-import { User, userActions } from "entities/User";
-import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestasyncThunk";
+import { userActions } from "entities/User";
+import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 
 jest.mock("axios");
 const mockedAxios = jest.mocked(axios, true); // helper for ts
@@ -23,7 +23,7 @@ describe('loginByUsername.test', () => {
 
     test('success login', async () => {
         const userData = {username: 'user', id: '1'};
-        
+
         mockedAxios.post.mockReturnValue(Promise.resolve({data: userData}));
         const thunk = new TestAsyncThunk(loginByUsername);
         const result = await thunk.callThunk({username: 'user', password: 'qwerty'})
@@ -36,7 +36,7 @@ describe('loginByUsername.test', () => {
     });
 
     test('error login', async () => {
-        
+
         mockedAxios.post.mockReturnValue(Promise.resolve({status: 403}));
         const thunk = new TestAsyncThunk(loginByUsername);
         const result = await thunk.callThunk({username: 'user', password: 'qwerty'})
