@@ -7,7 +7,8 @@
   },
   "Sidebar": {
     "main_page": "Главная",
-    "about_page": "О нас"
+    "about_page": "О нас",
+    "profile_page": "Профиль"
   },
   "LangSwitcher": {
     "language_short": "Ру",

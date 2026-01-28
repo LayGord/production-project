@@ -1,5 +1,5 @@
 import { memo, Reducer, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { loginActions, loginReducer } from "../../model/slice/loginSlice";
 import { loginByUsername } from "../../model/services/loginByUsername";
@@ -13,6 +13,7 @@ import { getLoginFormError } from "../../model/selectors/getLoginFormError/getLo
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./LoginForm.module.scss";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 
 const initialReducers: ReducersList = {
@@ -21,15 +22,16 @@ const initialReducers: ReducersList = {
 
 export interface LoginFormProps {
     className?: string;
+    onSuccess?: () => void;
 }
 
-const LoginForm = memo(({ className }: LoginFormProps) =>{
+const LoginForm = memo(({ className, onSuccess }: LoginFormProps) =>{
     const { t } = useTranslation();
     const username = useSelector(getLoginFormUsername);
     const password = useSelector(getLoginFormPassword);
     const isLoading = useSelector(getLoginFormIsLoading);
     const error = useSelector(getLoginFormError);
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const onChangeUsername = useCallback((value: string) => {
         dispatch(loginActions.setUsername(value))
@@ -39,9 +41,12 @@ const LoginForm = memo(({ className }: LoginFormProps) =>{
         dispatch(loginActions.setPassword(value))
     }, [dispatch]);
 
-    const onLoginClick = useCallback(() => {
-        dispatch(loginByUsername({username, password}))
-    }, [dispatch, username, password]);
+    const onLoginClick = useCallback(async () => {
+        const result = await dispatch(loginByUsername({username, password}))
+        if (result.meta.requestStatus === 'fulfilled' && onSuccess) {
+            onSuccess();
+        }
+    }, [onSuccess, dispatch, username, password]);
 
     return(
         // eslint-disable-next-line i18next/no-literal-string

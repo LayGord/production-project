@@ -9,6 +9,8 @@ import HomePageIcon from 'shared/assets/icons/home-icon.svg';
 import AboutPageicon from 'shared/assets/icons/about-icon.svg';
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./Sidebar.module.scss";
+import { SidebarItemsList } from "widgets/Sidebar/lib/item";
+import { SidebarItem } from "../SidebarItem/SidebarItem";
 
 interface SidebarProps {
     className?: string;
@@ -25,24 +27,15 @@ export const Sidebar = ({ className }: SidebarProps) => {
             className={ classNames(cls.Sidebar, {[cls.collapsed]: collapsed}, [className]) }
         >
             <div className={cls.links}>
-                <AppLink
-                    theme={AppLinkTheme.INVERTED}
-                    to={RouterPaths.main}
-                >
-                    <HomePageIcon />
-                    <span className={cls.link}>
-                        {t('Sidebar.main_page')}
-                    </span>
-                </AppLink>
-                <AppLink
-                    theme={AppLinkTheme.INVERTED}
-                    to={RouterPaths.about}
-                >
-                    <AboutPageicon />
-                    <span className={cls.link}>
-                        {t('Sidebar.about_page')}
-                    </span>
-                </AppLink>
+                {
+                    SidebarItemsList.map((item) => (
+                        <SidebarItem 
+                            itemData={item}
+                            key={item.path}
+                            collapsed={collapsed}
+                        />
+                    ))
+                }
             </div>
 
             <div className={cls.switchers}>
