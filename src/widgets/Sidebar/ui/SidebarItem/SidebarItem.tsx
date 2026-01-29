@@ -15,6 +15,7 @@ export const SidebarItem = memo(({ itemData, collapsed }: SidebarItemProps) => {
     const { t } = useTranslation()
     return(
         <AppLink
+            data-testid="sidebar-item"
             className={classNames(cls.SidebarItem, {[cls.collapsed]: collapsed})}
             theme={AppLinkTheme.INVERTED}
             to={itemData.path}
