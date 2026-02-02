@@ -28,5 +28,14 @@
         }
     ],
 
-    "profile": { "name": "typicode" }
+    "profile": {
+        "firstname": "Ростислав",
+        "lastname": "Админ",
+        "username": "admin",
+        "avatar": "https://sun9-26.userapi.com/s/v1/ig2/aP2jzdNdoyrnNtoIyn5rpmp-fKU-EN7NwLv1Mc84Hq0Yig1QVKNdZp_jjrZqyu6Aj8vZFFwgHQP4_SJfCJsrsRqR.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x214,240x320,360x480,480x641,540x721,640x854,720x961,1080x1441,1280x1708,1440x1922,1918x2560&from=bu&cs=1918x0",
+        "age": 24,
+        "country": "Russia",
+        "city": "Krasnodar",
+        "currency": "RUB"
+    }
 }

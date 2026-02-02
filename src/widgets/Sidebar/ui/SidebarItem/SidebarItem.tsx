@@ -7,7 +7,7 @@ import { memo } from "react";
 
 
 interface SidebarItemProps {
-    itemData?: SidebarItemType;
+    itemData: SidebarItemType;
     collapsed?: boolean;
 }
 

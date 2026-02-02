@@ -17,3 +17,12 @@ declare module "*.jpeg";
 declare module "*.png";
 
 declare const __IS_DEV__: boolean;
+declare const __API__: string;
+
+// Source - https://stackoverflow.com/a/61132308
+// Posted by Terry, modified by community. See post 'Timeline' for change history
+// Retrieved 2026-02-02, License - CC BY-SA 4.0
+
+type DeepPartial<T> = T extends object ? {
+    [P in keyof T]?: DeepPartial<T[P]>;
+} : T;

@@ -1,3 +1,13 @@
 {
-    "title": "This is profile page"
+    "title": "This is profile page",
+    "ProfileCard": {
+        "header": "Profile card",
+        "editBtn": "Edit",
+        "firstName": "Firstname",
+        "lastName": "Lastname",
+        "age": "Age",
+        "errors": {
+            "requestFailed": "Failed to request profile data"
+        }
+    }
 }

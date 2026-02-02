@@ -16,4 +16,4 @@ const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />
 
 export const Primary = Template.bind({});
 Primary.args = {};
-Primary.decorators = [RouterDecorator];
+//Primary.decorators = [RouterDecorator];

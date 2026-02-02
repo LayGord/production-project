@@ -14,7 +14,7 @@ export default ({config}: {config: webpack.Configuration}) => {
     };
 
     // absolute imports fix
-    config.resolve?.modules?.push(path.relative(__dirname, '../../src'), 'node_modules');
+    config.resolve?.modules?.push(path.relative(__dirname, paths.src), 'node_modules'); // was '../../src' before
     config.resolve?.extensions?.push('ts', 'tsx');
 
     // config.resolve?.modules? = [
@@ -31,7 +31,13 @@ export default ({config}: {config: webpack.Configuration}) => {
         return rule;
     });
 
-    config.plugins?.push(new DefinePlugin({"__IS_DEV__": true}))
+    config.plugins?.push(
+        new DefinePlugin({
+            "__IS_DEV__": JSON.stringify(true),
+            "__API__": JSON.stringify(''),
+        })
+    )
+    
 
     config.module?.rules.push(buildScssLoader(true));
     config.module?.rules.push(buildSvgLoader());

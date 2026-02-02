@@ -1,6 +1,5 @@
 import { StateSchema } from "app/providers/StoreProvider"
 import { getLoginFormError } from "./getLoginFormError"
-import { DeepPartial } from "@reduxjs/toolkit"
 
 describe('getLoginFormError.test', () => {
     test('should return value from state', () => {

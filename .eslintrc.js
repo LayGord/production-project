@@ -51,6 +51,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'i18next/no-literal-string': ['error', {markupOnly: true, ignoreAttribute: ['data-testid', 'to']}],
         'react/display-name': 'off',
+        'no-undef': 'off',
     },
     globals: {
         __IS_DEV__: true,

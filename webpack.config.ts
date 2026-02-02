@@ -5,6 +5,8 @@ import { BuildEnv, BuildMode, BuildOptions, BuildPaths } from './config/build/ty
 
 export default (env: BuildEnv) => {
     const mode: BuildMode = env.mode || 'development';
+    const port: number = env.port || 3000;
+    const apiUrl = env.apiUrl || 'http://localhost:8000';
 
     const paths: BuildPaths = {
         entry: path.resolve(__dirname, 'src', 'index.tsx'),
@@ -15,13 +17,13 @@ export default (env: BuildEnv) => {
 
     const isDev: boolean = mode === 'development';
     console.log(`BUILD SET TO ${mode} MODE`);
-    const port: number = env.port || 3000;
 
     const buildOptions: BuildOptions = {
         mode,
         paths,
         isDev,
-        port
+        port,
+        apiUrl,
     };
 
     const config: webpack.Configuration = buildWebpackConfig(buildOptions);

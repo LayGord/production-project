@@ -1,5 +1,5 @@
-import { ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { classNames } from "shared/lib/classNames/classNames";
+import { MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import { classNames, Mods } from "shared/lib/classNames/classNames";
 import cls from "./Modal.module.scss";
 import { Portal } from "../Portal/Portal";
 
@@ -19,9 +19,9 @@ export const Modal = ({ className, children, isOpen, onClose, lazy=false }: Moda
     const [isClosing, setIsClosing] = useState(false); // for closing animation
     const [isMounted, setIsMounted] = useState(false); // for lazy mounting
     const [isVisible, setIsVisible] = useState(false); // instead of isOpen controls the cls.opened
-    const timerRef = useRef<ReturnType<typeof setTimeout>>();
+    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
-    const mods:  Record<string, boolean> = {
+    const mods:  Mods = {
         [cls.opened]: isVisible,
         [cls.isClosing]: isClosing,
     };

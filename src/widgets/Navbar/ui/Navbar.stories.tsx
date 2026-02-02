@@ -20,7 +20,7 @@ const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {};
 Primary.decorators = [
-    RouterDecorator,
+    //RouterDecorator,
     StoreDecorator({
         user: { authData: undefined}
     })
@@ -29,7 +29,7 @@ Primary.decorators = [
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {};
 PrimaryDark.decorators = [
-    RouterDecorator,
+    //RouterDecorator,
     ThemeDecorator(Theme.DARK),
     StoreDecorator({
         user: { authData: undefined}
@@ -39,7 +39,7 @@ PrimaryDark.decorators = [
 export const Authenticated = Template.bind({});
 Authenticated.args = {};
 Authenticated.decorators = [
-    RouterDecorator,
+    //RouterDecorator,
     StoreDecorator({
         user: { authData: {id: '1', username: 'user1'}}
     })
@@ -48,7 +48,7 @@ Authenticated.decorators = [
 export const AuthenticatedDark = Template.bind({});
 AuthenticatedDark.args = {};
 AuthenticatedDark.decorators = [
-    RouterDecorator,
+    //RouterDecorator,
     ThemeDecorator(Theme.DARK),
     StoreDecorator({
         user: { authData: {id: '1', username: 'user1'}}

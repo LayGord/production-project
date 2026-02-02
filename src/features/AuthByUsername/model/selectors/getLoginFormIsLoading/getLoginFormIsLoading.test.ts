@@ -1,6 +1,5 @@
 import { StateSchema } from "app/providers/StoreProvider"
 import { getLoginFormIsLoading } from "./getLoginFormIsLoading"
-import { DeepPartial } from "@reduxjs/toolkit"
 
 describe('getLoginFormIsLoading.test', () => {
     test('should return value from state', () => {

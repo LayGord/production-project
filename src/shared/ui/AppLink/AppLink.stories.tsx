@@ -20,7 +20,7 @@ Primary.args = {
     children: 'link',
     theme: AppLinkTheme.PRIMARY
 };
-Primary.decorators = [RouterDecorator];
+//Primary.decorators = [RouterDecorator];
 
 export const Inverted = Template.bind({});
 Inverted.args = {
@@ -28,4 +28,4 @@ Inverted.args = {
     children: 'link',
     theme: AppLinkTheme.INVERTED
 };
-Inverted.decorators = [RouterDecorator];
+//Inverted.decorators = [RouterDecorator];
