@@ -99,6 +99,10 @@
   },
   "loki": {
     "fetchFailIgnore": ".*",
+    "chromeLoadTimeout": 90000,     
+    "chromeRetries": 5,               
+    "chromeLoadUrlTimeout": 45000,  
+    "rasterizeUrlTimeout": 45000,   
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.docker",
