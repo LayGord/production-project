@@ -4,6 +4,7 @@ import { ThemeDecorator } from '../../src/shared/config/storybook/decorators/The
 import { RouterDecorator } from '../../src/shared/config/storybook/decorators/RouterDecorator';
 import { Theme } from '../../src/app/providers/ThemeProvider';
 export const parameters = {
+    reactStrictMode: false,
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
         matchers: {
