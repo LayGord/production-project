@@ -6,7 +6,8 @@
 .inputField {
     width: 100%;
     outline: none;
-    padding-block: 10px;
+    padding-top: 12px;
+    padding-bottom: 8px;
     padding-inline: 10px;
     border: 1px solid var(--primary-color);
     background: none;
@@ -25,6 +26,7 @@
     font: var(--font-m);
     transition: 0.2s padding-block;
     transition: 0.2s font;
+    color: rgb(from var(--primary-color) r g b / 60%);
     cursor: text;
 }
 
