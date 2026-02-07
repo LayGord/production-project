@@ -39,3 +39,20 @@ PlaceholderDark.args = {
     placeholder: 'placeholder',
 };
 PlaceholderDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+    id: "placeholderdark",
+    placeholder: 'placeholder',
+    value: 'sometext',
+    disabled: true,
+};
+
+export const DisabledDark = Template.bind({});
+DisabledDark.args = {
+    id: "placeholderdark",
+    placeholder: 'placeholder',
+    value: 'sometext',
+    disabled: true,
+};
+DisabledDark.decorators = [ThemeDecorator(Theme.DARK)];

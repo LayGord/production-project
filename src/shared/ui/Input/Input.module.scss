@@ -39,3 +39,9 @@
     transition: 0.2s font;
     color: rgb(from var(--primary-color) r g b / 60%);
 }
+
+.disabled {
+    .inputField {
+        color: rgb(from var(--primary-color) r g b / 60%);
+    }
+}

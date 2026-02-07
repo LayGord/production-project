@@ -1,5 +1,5 @@
 import { InputHTMLAttributes, memo, useRef } from "react";
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames, Mods } from "shared/lib/classNames/classNames";
 import cls from "./Input.module.scss";
 
 interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'id' > {
@@ -7,6 +7,7 @@ interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value'
     className?: string;
     value?: string
     onChange?: (value: string) => void;
+    disabled?: boolean;
 }
 
 export const Input = memo((props: InputProps) =>{
@@ -18,6 +19,7 @@ export const Input = memo((props: InputProps) =>{
         onChange,
         type,
         placeholder,
+        disabled,
         ...otherProps
     } = props;
 
@@ -26,9 +28,13 @@ export const Input = memo((props: InputProps) =>{
         return onChange?.(e.target.value)
     };
 
+    const mods: Mods = {
+        [cls.disabled]: disabled,
+    }
+
     return(
         <div 
-            className={ classNames(cls.Input, {}, [className]) }
+            className={ classNames(cls.Input, mods, [className]) }
         >
             <input
                 id={id}
@@ -38,6 +44,7 @@ export const Input = memo((props: InputProps) =>{
                 value={value}
                 placeholder="" // for .inputField:not(:placeholder-shown) selector
                 onChange={onChangeHandler}
+                disabled={disabled}
                 {...otherProps}
             />
             <label htmlFor={id} className={cls.placeholder}>{placeholder}</label>
