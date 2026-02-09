@@ -5,7 +5,7 @@ import cls from "./Input.module.scss";
 interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'id' > {
     id: string;
     className?: string;
-    value?: string
+    value?: string | number;
     onChange?: (value: string) => void;
     disabled?: boolean;
 }

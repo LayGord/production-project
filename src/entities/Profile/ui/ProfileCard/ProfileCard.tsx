@@ -51,7 +51,7 @@ export const ProfileCard = ({ className }: ProfileCardProps) =>{
                     className={cls.input}
                     id="profileCard.age"
                     placeholder={t('ProfileCard.age')}
-                    value={ profileData?.age.toString() }
+                    value={ profileData?.age }
                 />
             </div>
         </div>
