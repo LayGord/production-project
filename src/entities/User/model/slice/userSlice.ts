@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { User, UserSchema } from '../types/UserSchema';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
+import { $api } from 'shared/api/api';
 
 const initialState: UserSchema = {};
 
@@ -17,11 +18,20 @@ export const userSlice = createSlice({
             if (authDataFromLocalStorage) {
                 state.authData = JSON.parse(authDataFromLocalStorage);
             }
-        },
+        }, 
         // logout imitation
         clearAuthData: (state) => {
             localStorage.removeItem(USER_LOCALSTORAGE_KEY);
             state.authData = undefined;
+
+            // fix later
+            // manually delete aut-header from api config after logout
+            $api.defaults.headers = {
+                ...$api.defaults.headers,
+                // @ts-ignore
+                authorization: ''
+            }
+            // fix later
         }
     },
 })

@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { LoginModal } from "features/AuthByUsername";
 import { getUserAuthData, userActions } from "entities/User";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
@@ -17,12 +18,14 @@ export const Navbar = ({ className }: NavbarProps) => {
     const [isAuthModal, setIsAuthModal] = useState(false);
     const dispatch = useDispatch();
     const authData = useSelector(getUserAuthData);
+    const navigate = useNavigate();
 
     const onOpenAuthModal = useCallback(() => setIsAuthModal(true), []);
     const onCloseAuthModal = useCallback(() => setIsAuthModal(false), []);
     const onLogout = useCallback(() => {
         dispatch(userActions.clearAuthData())
-    }, [dispatch]);
+        navigate('/'); // go to main page after logout
+    }, [dispatch, navigate]);
 
 
     if (authData) {

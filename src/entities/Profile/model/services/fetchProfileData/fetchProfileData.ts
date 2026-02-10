@@ -9,7 +9,7 @@ createAsyncThunk<Profile, void, ThunkAPIOptions<string>>(
     'profile/fetchProfileData',
     async (_, ThunkAPI) => {
         const { extra, rejectWithValue} = ThunkAPI;
-
+        console.log(extra.api?.defaults.headers);
         try {
             const response = await extra.api?.get<Profile>('/profile');
             if (!response?.data) {

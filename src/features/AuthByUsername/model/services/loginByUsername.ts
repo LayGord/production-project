@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkAPIOptions } from "app/providers/StoreProvider";
+import { fetchProfileData } from "entities/Profile";
 import { User } from "entities/User";
 import { userActions } from "entities/User";
 import { USER_LOCALSTORAGE_KEY } from "shared/const/localStorage";
@@ -20,9 +21,24 @@ createAsyncThunk<User, LoginByUsernameProps, ThunkAPIOptions<string>>(
             if (!response?.data) {
                 throw new Error()
             };
-            localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data)); // token imitation
+
+            const stringifiedData = JSON.stringify(response.data);
+
+            localStorage.setItem(USER_LOCALSTORAGE_KEY, stringifiedData);
             dispatch(userActions.setAuthData(response.data)); // pass sucessfully recieved data to User slice
-            extra.navigate?.('/profile')
+
+            // fix later
+            // token immitation
+            if (extra.api){
+                extra.api.defaults.headers = {
+                    ...extra.api.defaults.headers,
+                    // @ts-ignore
+                    authorization: stringifiedData
+                }
+            }
+            // fix later
+
+            dispatch(fetchProfileData())
             return response.data;
         } catch (error) {
             console.log(error);

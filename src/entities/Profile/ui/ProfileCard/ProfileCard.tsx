@@ -2,25 +2,49 @@ import { useTranslation } from "react-i18next";
 import { Text } from "shared/ui/Text/Text";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { Input } from "shared/ui/Input/Input";
+import { Profile } from "../../model/types/ProfileSchema";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./ProfileCard.module.scss";
-import { useSelector } from "react-redux";
-import { getProfileData } from "entities/Profile/model/selectors/getProfileData/getProfiledata";
-import { getProfileError } from "entities/Profile/model/selectors/getProfileError/getProfileError";
-import { getProfileIsLoading } from "entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading";
+import { Loader } from "shared/ui/Loader/Loader";
 
 
 interface ProfileCardProps {
     className?: string;
+    profileData?: Profile;
+    error?: string;
+    isLoading?: boolean;
+    readonly?: boolean;
 }
 
-export const ProfileCard = ({ className }: ProfileCardProps) =>{
-    const { t } = useTranslation('profilePage');
-    const profileData = useSelector(getProfileData);
-    const error = useSelector(getProfileError);
-    const isLoading = useSelector(getProfileIsLoading);
+export const ProfileCard = (props: ProfileCardProps) =>{
+    const {
+        className,
+        profileData,
+        error,
+        isLoading = false,
+        readonly = true,
+    } = props;
 
-    console.log(profileData)
+    const { t } = useTranslation('profilePage');
+
+    if (isLoading) {
+        return(
+            <div className={ classNames(cls.ProfileCard, {}, [className]) }>
+                <Loader/>
+            </div>
+        )
+    }
+
+    if (error) {
+        return(
+            <div className={ classNames(cls.ProfileCard, {}, [className]) }>
+                <Text 
+                    title={t('ProfileCard.errors.requestFailed')}
+                />
+            </div>
+        )
+    }
+
     return(
         <div className={ classNames(cls.ProfileCard, {}, [className]) }>
             <div
@@ -40,18 +64,21 @@ export const ProfileCard = ({ className }: ProfileCardProps) =>{
                     id="profileCard.firstName"
                     placeholder={t('ProfileCard.firstName')}
                     value={ profileData?.firstname }
+                    readOnly={readonly}
                 />
                 <Input
                     className={cls.input}
                     id="profileCard.lastName"
                     placeholder={t('ProfileCard.lastName')}
                     value={ profileData?.lastname }
+                    readOnly={readonly}
                 />
                 <Input
                     className={cls.input}
                     id="profileCard.age"
                     placeholder={t('ProfileCard.age')}
                     value={ profileData?.age }
+                    readOnly={readonly}
                 />
             </div>
         </div>
