@@ -3,11 +3,14 @@
     "ProfileCard": {
         "header": "Карточка профиля",
         "editBtn": "Редактировать",
+        "saveBtn": "Сохранить",
+        "cancelBtn": "Отменить",
         "firstName": "Имя",
         "lastName": "Фамилия",
         "age": "Возраст",
         "errors": {
-            "requestFailed": "Не удалось получить данные профиля"
+            "getRequestFailed": "Не удалось получить данные профиля",
+            "putRequestFailed": "Не удалось сохранить данные профиля"
         }
     }
 }

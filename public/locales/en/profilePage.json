@@ -3,11 +3,14 @@
     "ProfileCard": {
         "header": "Profile card",
         "editBtn": "Edit",
+        "saveBtn": "Save",
+        "cancelBtn": "Cancel",
         "firstName": "Firstname",
         "lastName": "Lastname",
         "age": "Age",
         "errors": {
-            "requestFailed": "Failed to request profile data"
+            "getRequestFailed": "Failed to request profile data",
+            "putRequestFailed": "Failed to update profile data"
         }
     }
 }

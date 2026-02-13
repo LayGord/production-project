@@ -5,7 +5,7 @@ export interface Profile {
     lastname?: string;
     username?: string;
     avatar?: string;
-    age?: number;
+    age?: number | string;
     country?: Country;
     city?: string;
     currency?: Currency;

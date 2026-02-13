@@ -4,11 +4,13 @@ export enum Country {
     Ukraine = "Ukraine",
     Georgia = "Georgia",
     Armenia = "Armenia",
-    Kazakstan = "Kazakstan"
+    Kazakstan = "Kazakstan",
+    Not_set = 'Unknown'
 };
 
 export enum Currency {
     RUB = "RUB",
     EUR = "EUR",
-    USD = "USD"
+    USD = "USD",
+    Not_set = 'Unknown',
 };

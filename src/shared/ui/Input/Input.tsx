@@ -2,12 +2,12 @@ import { InputHTMLAttributes, memo, useRef } from "react";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
 import cls from "./Input.module.scss";
 
-interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'id' > {
+interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'id' | 'readOnly'> {
     id: string;
     className?: string;
     value?: string | number;
     onChange?: (value: string) => void;
-    disabled?: boolean;
+    readOnly?: boolean;
 }
 
 export const Input = memo((props: InputProps) =>{
@@ -19,7 +19,7 @@ export const Input = memo((props: InputProps) =>{
         onChange,
         type,
         placeholder,
-        disabled,
+        readOnly = false,
         ...otherProps
     } = props;
 
@@ -29,7 +29,7 @@ export const Input = memo((props: InputProps) =>{
     };
 
     const mods: Mods = {
-        [cls.disabled]: disabled,
+        [cls.disabled]: readOnly,
     }
 
     return(
@@ -44,7 +44,7 @@ export const Input = memo((props: InputProps) =>{
                 value={value}
                 placeholder="" // for .inputField:not(:placeholder-shown) selector
                 onChange={onChangeHandler}
-                disabled={disabled}
+                readOnly={readOnly}
                 {...otherProps}
             />
             <label htmlFor={id} className={cls.placeholder}>{placeholder}</label>

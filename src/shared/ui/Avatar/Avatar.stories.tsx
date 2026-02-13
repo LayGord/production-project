@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Avatar } from './Avatar';
+import { Avatar, AvatarTheme } from './Avatar';
 import AvatarDefaultImg from './avatar_default.jpg';
 
 export default {
@@ -19,3 +19,24 @@ Primary.args = {
     alt: 'avatar'
 };
 
+export const Rounded = Template.bind({});
+Rounded.args = {
+    src: AvatarDefaultImg,
+    alt: 'avatar',
+    theme: AvatarTheme.ROUNDED,
+};
+
+export const PrimaryEditable = Template.bind({});
+PrimaryEditable.args = {
+    src: AvatarDefaultImg,
+    alt: 'avatar',
+    editable: true
+};
+
+export const RoundedEditable = Template.bind({});
+RoundedEditable.args = {
+    src: AvatarDefaultImg,
+    alt: 'avatar',
+    theme: AvatarTheme.ROUNDED,
+    editable: true,
+};
