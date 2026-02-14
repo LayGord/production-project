@@ -8,6 +8,8 @@ import cls from "./ProfileCard.module.scss";
 import { Loader } from "shared/ui/Loader/Loader";
 import { Country, Currency } from "shared/const/common";
 import { Avatar, AvatarTheme } from "shared/ui/Avatar/Avatar";
+import { AvatarModal } from "../AvatarModal/AvatarModal";
+import { useState } from "react";
 
 
 interface ProfileCardProps {
@@ -34,12 +36,22 @@ export const ProfileCard = (props: ProfileCardProps) =>{
         error,
         isLoading = false,
         readonly = true,
+        onChangeUsername,
         onChangeFirstname,
         onChangeLastname,
         onChangeAge,
+        onChangeAvatar,
     } = props;
 
     const { t } = useTranslation('profilePage');
+
+    const [isAvatarModal, setIsAvatarModal] = useState(false);
+    const onAvatarModal = () => {
+        setIsAvatarModal(true)
+    };
+    const onCloseAvatarModal = () => {
+        setIsAvatarModal(false)
+    };
 
     if (isLoading) {
         return(
@@ -64,7 +76,18 @@ export const ProfileCard = (props: ProfileCardProps) =>{
             <div className={cls.info}>
                 <Avatar 
                     src={formProfileData?.avatar}
-                    theme={AvatarTheme.ROUNDED}
+                    theme={AvatarTheme.DEFAULT}
+                    size={200}
+                    editable={!readonly}
+                    onEdit={onAvatarModal}
+                />
+                <Input
+                    className={cls.input}
+                    id="profileCard.userName"
+                    placeholder={t('ProfileCard.userName')}
+                    value={ formProfileData?.username }
+                    readOnly={readonly}
+                    onChange={onChangeUsername}
                 />
                 <Input
                     className={cls.input}
@@ -90,6 +113,16 @@ export const ProfileCard = (props: ProfileCardProps) =>{
                     readOnly={readonly}
                     onChange={onChangeAge}
                 />
+                {
+                    isAvatarModal && 
+                    <AvatarModal 
+                        isOpen={isAvatarModal}
+                        onClose={onCloseAvatarModal}
+                        src={formProfileData?.avatar || ''}
+                        onChangeAvatar={onChangeAvatar}
+                    />
+                }
+                
             </div>
         </div>
     );

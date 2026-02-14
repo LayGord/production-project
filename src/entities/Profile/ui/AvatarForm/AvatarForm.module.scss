@@ -1,0 +1,22 @@
+.AvatarForm {
+    padding-inline: 10px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image {
+    margin: 15px 0 10px;
+}
+
+.inputBlock {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.input {
+    margin-right: 10px;
+}

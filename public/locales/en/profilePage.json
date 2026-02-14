@@ -5,12 +5,18 @@
         "editBtn": "Edit",
         "saveBtn": "Save",
         "cancelBtn": "Cancel",
+        "userName": "Username",
         "firstName": "Firstname",
         "lastName": "Lastname",
         "age": "Age",
         "errors": {
             "getRequestFailed": "Failed to request profile data",
             "putRequestFailed": "Failed to update profile data"
+        },
+        "AvatarModal": {
+            "title": "Your avatar",
+            "formPh": "Image url",
+            "saveBtn": "Apply"
         }
     }
 }

@@ -8,6 +8,7 @@ interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value'
     value?: string | number;
     onChange?: (value: string) => void;
     readOnly?: boolean;
+    borderless?: boolean;
 }
 
 export const Input = memo((props: InputProps) =>{
@@ -20,6 +21,7 @@ export const Input = memo((props: InputProps) =>{
         type,
         placeholder,
         readOnly = false,
+        borderless = false,
         ...otherProps
     } = props;
 
@@ -30,6 +32,7 @@ export const Input = memo((props: InputProps) =>{
 
     const mods: Mods = {
         [cls.disabled]: readOnly,
+        [cls.borderless]: borderless,
     }
 
     return(

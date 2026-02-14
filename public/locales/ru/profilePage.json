@@ -5,12 +5,18 @@
         "editBtn": "Редактировать",
         "saveBtn": "Сохранить",
         "cancelBtn": "Отменить",
+        "userName": "Логин",
         "firstName": "Имя",
         "lastName": "Фамилия",
         "age": "Возраст",
         "errors": {
             "getRequestFailed": "Не удалось получить данные профиля",
             "putRequestFailed": "Не удалось сохранить данные профиля"
+        },
+        "AvatarModal": {
+            "title": "Фото вашего профиля",
+            "formPh": "url изображения",
+            "saveBtn": "Применить"
         }
     }
 }

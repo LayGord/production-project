@@ -45,3 +45,7 @@
         color: rgb(from var(--primary-color) r g b / 60%);
     }
 }
+
+.borderless > .inputField {
+    border: none;
+}

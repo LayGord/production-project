@@ -43,6 +43,7 @@ export const ProfilePageHeader = (props: ProfilePageheaderProps) =>{
                 readonly ?
                     (
                         <Button
+                            className={cls.editBtns}
                             theme={ButtonTheme.OUTLINE}
                             onClick={onEdit}
                         >

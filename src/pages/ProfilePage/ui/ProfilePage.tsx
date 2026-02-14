@@ -82,9 +82,11 @@ const ProfilePage = () => {
                     isLoading={profileIsLoading}
                     error={profileError}
                     readonly={profileReadonly}
+                    onChangeUsername={onChangeUsername}
                     onChangeFirstname={onChangeFirstname}
                     onChangeLastname={onChangeLastname}
                     onChangeAge={onChangeAge}
+                    onChangeAvatar={onChangeAvatar}
                 />
             </div>
         </DynamicModuleLoader>

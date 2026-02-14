@@ -1,7 +1,8 @@
 import { CSSProperties, useMemo } from "react";
-import UploadIcon from 'shared/assets/icons/upload-icon.svg';
+import EditIcon from 'shared/assets/icons/edit-icon.svg';
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./Avatar.module.scss";
+
 import { Button, ButtonTheme } from "../Button/Button";
 
 export enum AvatarTheme {
@@ -15,6 +16,7 @@ interface AvatarProps {
     alt?: string;
     size?: number;
     editable?: boolean;
+    onEdit?: () => void;
     theme?: AvatarTheme;
 }
 
@@ -25,6 +27,7 @@ export const Avatar = (props: AvatarProps) => {
         alt,
         size = 100,
         editable = false,
+        onEdit,
         theme = AvatarTheme.DEFAULT
     } = props;
 
@@ -37,6 +40,7 @@ export const Avatar = (props: AvatarProps) => {
         return (
             <div
                 className={ classNames(cls.Avatar, {}, [className, cls[theme]]) }
+                style={style}
             >
                 <img
                     className={cls.image}
@@ -48,8 +52,9 @@ export const Avatar = (props: AvatarProps) => {
                     className={cls.editBtn}
                     theme={ButtonTheme.CLEAR}
                     style={style}
+                    onClick={onEdit}
                 >
-                    <UploadIcon />
+                    <EditIcon />
                 </Button>
             </div>
         )
@@ -58,6 +63,7 @@ export const Avatar = (props: AvatarProps) => {
     return (
         <div
             className={ classNames(cls.Avatar, {}, [className, cls[theme]]) }
+            style={style}
         >
             <img
                 className={cls.image}
