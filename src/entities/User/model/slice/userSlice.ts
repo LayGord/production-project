@@ -14,9 +14,9 @@ export const userSlice = createSlice({
         },
         // token imitation
         initAuthData: (state) => {
-            const authDataFromLocalStorage = localStorage.getItem(USER_LOCALSTORAGE_KEY);
-            if (authDataFromLocalStorage) {
-                state.authData = JSON.parse(authDataFromLocalStorage);
+            const user = localStorage.getItem(USER_LOCALSTORAGE_KEY);
+            if (user) {
+                state.authData = JSON.parse(user);
             }
         }, 
         // logout imitation
@@ -26,12 +26,12 @@ export const userSlice = createSlice({
 
             // fix later
             // manually delete aut-header from api config after logout
-            $api.defaults.headers = {
-                ...$api.defaults.headers,
-                // @ts-ignore
-                authorization: ''
-            }
-            // fix later
+            // $api.defaults.headers = {
+            //     ...$api.defaults.headers,
+            //     // @ts-ignore
+            //     authorization: ''
+            // }
+            // // fix later
         }
     },
 })

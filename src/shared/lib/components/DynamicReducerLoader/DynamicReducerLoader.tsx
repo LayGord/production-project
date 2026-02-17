@@ -6,18 +6,17 @@ import { ReduxStoreWithManager, StateSchemaKey } from "app/providers/StoreProvid
 
 export type ReducersList = {[name in StateSchemaKey]?: Reducer};
 
-interface DynamicModuleLoaderProps {
-    children: ReactNode;
+interface DynamicReducerLoaderProps {
     reducers: ReducersList;
     removeAfterUnmount?: boolean;
 }
 
 // for async reducer loading
-export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) =>{
+export const DynamicReducerLoader: FC<DynamicReducerLoaderProps> = (props) =>{
     const {
         children,
         reducers,
-        removeAfterUnmount = true,
+        removeAfterUnmount,
     } = props;
 
     const store = useStore() as ReduxStoreWithManager;
@@ -36,7 +35,7 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) =>{
                 })
             };
         };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
     }, [])
 
     return(

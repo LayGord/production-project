@@ -1,15 +1,15 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Country, CountrySelect } from "entities/Country";
+import { Currency, CurrencySelect } from "entities/Currency";
 import { Text } from "shared/ui/Text/Text";
-import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { Input } from "shared/ui/Input/Input";
+import { Loader } from "shared/ui/Loader/Loader";
+import { Avatar, AvatarTheme } from "shared/ui/Avatar/Avatar";
 import { Profile } from "../../model/types/ProfileSchema";
+import { AvatarModal } from "../AvatarModal/AvatarModal";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./ProfileCard.module.scss";
-import { Loader } from "shared/ui/Loader/Loader";
-import { Country, Currency } from "shared/const/common";
-import { Avatar, AvatarTheme } from "shared/ui/Avatar/Avatar";
-import { AvatarModal } from "../AvatarModal/AvatarModal";
-import { useState } from "react";
 
 
 interface ProfileCardProps {
@@ -41,6 +41,9 @@ export const ProfileCard = (props: ProfileCardProps) =>{
         onChangeLastname,
         onChangeAge,
         onChangeAvatar,
+        onChangeCity,
+        onChangeCountry,
+        onChangeCurrency,
     } = props;
 
     const { t } = useTranslation('profilePage');
@@ -65,7 +68,7 @@ export const ProfileCard = (props: ProfileCardProps) =>{
         return(
             <div className={ classNames(cls.ProfileCard, {}, [className]) }>
                 <Text 
-                    title={t('ProfileCard.errors.requestFailed')}
+                    title={t('ProfileCard.errors.getRequestFailed')}
                 />
             </div>
         )
@@ -112,6 +115,28 @@ export const ProfileCard = (props: ProfileCardProps) =>{
                     value={ formProfileData?.age }
                     readOnly={readonly}
                     onChange={onChangeAge}
+                />
+                <CountrySelect
+                    className={cls.input}
+                    id="profileCard.country"
+                    value={ formProfileData?.country }
+                    readonly={readonly}
+                    onChange={onChangeCountry}
+                />
+                <Input
+                    className={cls.input}
+                    id="profileCard.city"
+                    placeholder={t('ProfileCard.city')}
+                    value={ formProfileData?.city }
+                    readOnly={readonly}
+                    onChange={onChangeCity}
+                />
+                <CurrencySelect
+                    className={cls.input}
+                    id="profileCard.currency"
+                    value={ formProfileData?.currency }
+                    readonly={readonly}
+                    onChange={onChangeCurrency}
                 />
                 {
                     isAvatarModal && 

@@ -10,7 +10,7 @@ import { getLoginFormUsername } from "../../model/selectors/getLoginFormUsername
 import { getLoginFormPassword } from "../../model/selectors/getLoginFormPassword/getLoginFormPassword";
 import { getLoginFormIsLoading } from "../../model/selectors/getLoginFormIsLoading/getLoginFormIsLoading";
 import { getLoginFormError } from "../../model/selectors/getLoginFormError/getLoginFormError";
-import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { DynamicReducerLoader, ReducersList } from "shared/lib/components/DynamicReducerLoader/DynamicReducerLoader";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./LoginForm.module.scss";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
@@ -50,7 +50,10 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) =>{
 
     return(
         // eslint-disable-next-line i18next/no-literal-string
-        <DynamicModuleLoader reducers={initialReducers}>
+        <DynamicReducerLoader 
+            reducers={initialReducers}
+            removeAfterUnmount
+        >
             <div 
                 className={ classNames(cls.LoginForm, {}, [className]) }
                 data-testid="login-form"
@@ -91,7 +94,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) =>{
                     {t('LoginForm.submitBtn')}
                 </Button>
             </div>
-        </DynamicModuleLoader>
+        </DynamicReducerLoader>
     );
 });
 

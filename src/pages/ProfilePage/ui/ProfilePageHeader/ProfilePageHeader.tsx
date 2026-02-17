@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { getProfileReadonly, profileActions, updateProfileData } from "entities/Profile";
+import { getProfileIsLoading, getProfileReadonly, profileActions, updateProfileData } from "entities/Profile";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { Text } from "shared/ui/Text/Text";
@@ -18,6 +18,7 @@ export const ProfilePageHeader = (props: ProfilePageheaderProps) =>{
     } = props;
 
     const { t } = useTranslation('profilePage');
+
     const readonly = useSelector(getProfileReadonly);
     const dispatch = useAppDispatch();
 
@@ -32,6 +33,7 @@ export const ProfilePageHeader = (props: ProfilePageheaderProps) =>{
     const onUpdateProfile = useCallback(() => {
         dispatch(updateProfileData())
     }, [dispatch]);
+
 
     return(
         <div className={ classNames(cls.ProfilePageHeader, {}, [className]) }>

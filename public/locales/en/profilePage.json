@@ -9,6 +9,7 @@
         "firstName": "Firstname",
         "lastName": "Lastname",
         "age": "Age",
+        "city": "City",
         "errors": {
             "getRequestFailed": "Failed to request profile data",
             "putRequestFailed": "Failed to update profile data"

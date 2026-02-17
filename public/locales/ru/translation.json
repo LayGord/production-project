@@ -38,5 +38,11 @@
     "errors": {
       "invalidCreds": "Неверно введено имя пользователя или пароль"
     }
+  },
+  "CountrySelect": {
+    "label": "Страна"
+  },
+  "CurrencySelect": {
+    "label": "Валюта"
   }
 }

@@ -1,6 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkAPIOptions } from "app/providers/StoreProvider";
-import { fetchProfileData } from "entities/Profile";
 import { User } from "entities/User";
 import { userActions } from "entities/User";
 import { USER_LOCALSTORAGE_KEY } from "shared/const/localStorage";
@@ -10,8 +9,11 @@ export interface LoginByUsernameProps {
     password: string;
 };
 
-export const loginByUsername = 
-createAsyncThunk<User, LoginByUsernameProps, ThunkAPIOptions<string>>(
+export const loginByUsername = createAsyncThunk<
+    User,
+    LoginByUsernameProps,
+    ThunkAPIOptions<string>
+>(
     'login/loginByUsername',
     async (authData, ThunkAPI) => {
         const { extra, dispatch, rejectWithValue} = ThunkAPI;
@@ -29,16 +31,16 @@ createAsyncThunk<User, LoginByUsernameProps, ThunkAPIOptions<string>>(
 
             // fix later
             // token immitation
-            if (extra.api){
-                extra.api.defaults.headers = {
-                    ...extra.api.defaults.headers,
-                    // @ts-ignore
-                    authorization: stringifiedData
-                }
-            }
+            // if (extra.api){
+            //     extra.api.defaults.headers = {
+            //         ...extra.api.defaults.headers,
+            //         // @ts-ignore
+            //         authorization: stringifiedData
+            //     }
+            // }
             // fix later
 
-            dispatch(fetchProfileData())
+            //dispatch(fetchProfileData())
             return response.data;
         } catch (error) {
             console.log(error);

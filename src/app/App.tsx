@@ -14,16 +14,15 @@ const App = () => {
     }, [dispatch]);
 
     return (
-        // eslint-disable-next-line i18next/no-literal-string
-        <Suspense fallback={<div>Loading translations...</div>}>
-            <div className='app'>
+        <div className='app'>
+            <Suspense fallback={''}>
                 <Navbar />
                 <div className='content-page'>
                     <Sidebar />
                     <AppRouter />
                 </div>
-            </div>
-        </Suspense>
+            </Suspense>
+        </div>
     )
 };
 

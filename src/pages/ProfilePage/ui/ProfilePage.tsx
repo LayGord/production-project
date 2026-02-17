@@ -13,12 +13,12 @@ import {
     profileActions,
 } from "entities/Profile";
 
-import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { DynamicReducerLoader, ReducersList } from "shared/lib/components/DynamicReducerLoader/DynamicReducerLoader";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
-import { Country, Currency } from "shared/const/common";
+import { Country } from "entities/Country";
+import { Currency } from "entities/Currency";
 import { getProfileForm } from "entities/Profile";
-
 
 const reducers: ReducersList = {
     profile: profileReducer
@@ -33,9 +33,11 @@ const ProfilePage = () => {
     const profileError = useSelector(getProfileError);
     const profileReadonly = useSelector(getProfileReadonly);
     
+
     useEffect(() => {
         dispatch(fetchProfileData());
     }, [dispatch])
+
 
     const onChangeFirstname = useCallback((firstname: string) => {
         dispatch(profileActions.updateFormData({firstname: firstname || ''}))
@@ -71,7 +73,7 @@ const ProfilePage = () => {
 
 
     return (
-        <DynamicModuleLoader
+        <DynamicReducerLoader
             reducers={reducers}
             removeAfterUnmount
         >
@@ -87,9 +89,12 @@ const ProfilePage = () => {
                     onChangeLastname={onChangeLastname}
                     onChangeAge={onChangeAge}
                     onChangeAvatar={onChangeAvatar}
+                    onChangeCountry={onChangeCountry}
+                    onChangeCity={onChangeCity}
+                    onChangeCurrency={onChangeCurrency}
                 />
             </div>
-        </DynamicModuleLoader>
+        </DynamicReducerLoader>
     )
 
 };

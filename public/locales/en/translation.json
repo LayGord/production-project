@@ -38,5 +38,11 @@
     "errors": {
       "invalidCreds": "Incorrect username or password"
     }
+  },
+  "CountrySelect": {
+    "label": "Country"
+  },
+  "CurrencySelect": {
+    "label": "Currency"
   }
 }

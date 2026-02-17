@@ -7,10 +7,3 @@ export enum Country {
     Kazakstan = "Kazakstan",
     Not_set = 'Unknown'
 };
-
-export enum Currency {
-    RUB = "RUB",
-    EUR = "EUR",
-    USD = "USD",
-    Not_set = 'Unknown',
-};

@@ -25,7 +25,7 @@ const AvatarForm = (props: AvatarFormProps) =>{
 
     const [inputSrc, setInputSrc] = useState(src);
     const onSaveAvatar = () => {
-        onChangeAvatar?.(inputSrc);     
+        onChangeAvatar?.(inputSrc);
     };
 
     return(

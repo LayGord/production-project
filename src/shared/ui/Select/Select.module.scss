@@ -1,0 +1,33 @@
+.Select {
+    border: 1px solid var(--primary-color);
+    position: relative;
+    display: flex;
+
+    & select:disabled {
+        opacity: 1;
+        appearance: none;
+    }
+}
+
+.label {
+    position: absolute;
+    left: 0;
+    padding-inline: 10px;
+    padding-block: 0;
+    font: var(--font-s);
+}
+
+.selector {
+    font: var(--font-m);
+    color: var(--primary-color);
+    padding: 14px 10px 6px;
+    flex: 0.98;
+    border: none;
+    outline: none;
+    height: 44px;
+    box-sizing: border-box;
+}
+
+.option {
+    padding-inline: 10px;
+}

@@ -9,6 +9,7 @@
         "firstName": "Имя",
         "lastName": "Фамилия",
         "age": "Возраст",
+        "city": "Город",
         "errors": {
             "getRequestFailed": "Не удалось получить данные профиля",
             "putRequestFailed": "Не удалось сохранить данные профиля"
