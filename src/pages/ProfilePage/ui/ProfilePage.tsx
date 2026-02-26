@@ -7,10 +7,12 @@ import {
     getProfileError, 
     getProfileIsLoading, 
     getProfileReadonly, 
+    getProfileValidateErrors,
     ProfileCard, 
     profileReducer,
     fetchProfileData,
     profileActions,
+    ValidateProfileDataError,
 } from "entities/Profile";
 
 import { DynamicReducerLoader, ReducersList } from "shared/lib/components/DynamicReducerLoader/DynamicReducerLoader";
@@ -19,6 +21,7 @@ import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 import { Country } from "entities/Country";
 import { Currency } from "entities/Currency";
 import { getProfileForm } from "entities/Profile";
+import { Text, TextTheme } from "shared/ui/Text/Text";
 
 const reducers: ReducersList = {
     profile: profileReducer
@@ -32,12 +35,22 @@ const ProfilePage = () => {
     const profileIsLoading = useSelector(getProfileIsLoading);
     const profileError = useSelector(getProfileError);
     const profileReadonly = useSelector(getProfileReadonly);
-    
+    const profileValidateErrors = useSelector(getProfileValidateErrors);
+
+    const validateErrorsMapping = {
+        [ValidateProfileDataError.INCORRECT_USERNAME]: t('INCORRECT_USERNAME'),
+        [ValidateProfileDataError.INCORRECT_USER_DATA]: t('INCORRECT_USER_DATA'),
+        [ValidateProfileDataError.INCORRECT_AGE]: t('INCORRECT_AGE'),
+        [ValidateProfileDataError.INCORRECT_REGIONAL_DATA]: t('INCORRECT_REGIONAL_DATA'),
+        [ValidateProfileDataError.NO_DATA]: t('NO_DATA'),
+        [ValidateProfileDataError.SERVER_ERROR]: t('SERVER_ERROR'),
+    }
+
+
 
     useEffect(() => {
         dispatch(fetchProfileData());
     }, [dispatch])
-
 
     const onChangeFirstname = useCallback((firstname: string) => {
         dispatch(profileActions.updateFormData({firstname: firstname || ''}))
@@ -71,7 +84,6 @@ const ProfilePage = () => {
         dispatch(profileActions.updateFormData({currency: currency || Currency.Not_set}))
     }, [dispatch]);
 
-
     return (
         <DynamicReducerLoader
             reducers={reducers}
@@ -79,6 +91,20 @@ const ProfilePage = () => {
         >
             <div className={cls.ProfilePage}>
                 <ProfilePageHeader />
+
+                <div className={cls.errors}>
+                    {
+                        profileValidateErrors?.length &&
+                        profileValidateErrors.map((error) => (
+                            <Text
+                                key={error}
+                                text={validateErrorsMapping[error]}
+                                theme={TextTheme.ERROR}
+                            />
+                        ))
+                    }
+                </div>
+
                 <ProfileCard
                     formProfileData={profileData}
                     isLoading={profileIsLoading}

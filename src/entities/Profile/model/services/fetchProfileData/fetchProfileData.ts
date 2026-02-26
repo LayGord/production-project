@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkAPIOptions } from "app/providers/StoreProvider";
-import { Profile } from "../../types/ProfileSchema";
+import { Profile, ValidateProfileDataError } from "../../types/ProfileSchema";
 
 export interface FetchProfileDataProps {};
 
@@ -9,7 +9,7 @@ createAsyncThunk<Profile, void, ThunkAPIOptions<string>>(
     'profile/fetchProfileData',
     async (_, ThunkAPI) => {
         const { extra, rejectWithValue} = ThunkAPI;
-        console.log(extra.api?.defaults.headers);
+
         try {
             const response = await extra.api?.get<Profile>('/profile');
             if (!response?.data) {
@@ -18,7 +18,7 @@ createAsyncThunk<Profile, void, ThunkAPIOptions<string>>(
             return response.data;
 
         } catch (error) {
-            return rejectWithValue('ProfileCard.errors.getRequestFailed');
+            return rejectWithValue(ValidateProfileDataError.SERVER_ERROR);
         }
     }
 )

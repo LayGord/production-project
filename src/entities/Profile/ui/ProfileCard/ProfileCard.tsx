@@ -75,6 +75,11 @@ export const ProfileCard = (props: ProfileCardProps) =>{
         )
     }
 
+
+    // avatar >
+    // InfoCols > main + regional
+    // modal >
+
     return(
         <div className={ classNames(cls.ProfileCard, {}, [className]) }>
             <Avatar
@@ -85,6 +90,7 @@ export const ProfileCard = (props: ProfileCardProps) =>{
                 editable={!readonly}
                 onEdit={onAvatarModal}
             />
+
             <div
                 className={cls.infoColumns}
             >
@@ -98,6 +104,7 @@ export const ProfileCard = (props: ProfileCardProps) =>{
                         placeholder={t('ProfileCard.userName')}
                         value={ formProfileData?.username }
                         readOnly={readonly}
+                        onChange={onChangeUsername}
                         theme={InputTheme.UNDERLINE}
                     />
                     <Input
