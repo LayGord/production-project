@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { memo, useCallback } from "react";
-import { Select, SelectOptions } from "shared/ui/Select/Select";
+import { Select, SelectOptions, SelectTheme } from "shared/ui/Select/Select";
 import { Currency } from "../../model/types/currency";
 import { classNames } from "shared/lib/classNames/classNames";
 
@@ -9,7 +9,8 @@ interface CurrencySelectProps {
     className?: string;
     value?: Currency;
     onChange?: (value: Currency) => void;
-    readonly?: boolean;
+    readOnly?: boolean;
+    theme?: SelectTheme;
 }
 
 const options: SelectOptions[] = [
@@ -27,7 +28,8 @@ export const CurrencySelect = memo((props: CurrencySelectProps) =>{
         className,
         value,
         onChange,
-        readonly = false,
+        readOnly = false,
+        theme = SelectTheme.PRIMARY,
     } = props;
 
     const onChangeHandler = useCallback((value: string) => {
@@ -41,8 +43,9 @@ export const CurrencySelect = memo((props: CurrencySelectProps) =>{
             label={t('CurrencySelect.label')}
             options={options}
             value={value}
-            readonly={readonly}
+            readOnly={readOnly}
             onChange={onChangeHandler}
+            theme={theme}
         />
     );
 });

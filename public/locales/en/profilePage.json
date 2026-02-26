@@ -10,9 +10,11 @@
         "lastName": "Lastname",
         "age": "Age",
         "city": "City",
+        "mainInfo": "Main information",
+        "regionalInfo": "Optional",
         "errors": {
-            "getRequestFailed": "Failed to request profile data",
-            "putRequestFailed": "Failed to update profile data"
+            "GET_REQUEST_FAILED": "Failed to request profile data",
+            "PUT_REQUEST_FAILED": "Failed to update profile data"
         },
         "AvatarModal": {
             "title": "Your avatar",

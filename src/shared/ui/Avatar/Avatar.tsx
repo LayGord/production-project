@@ -1,5 +1,5 @@
 import { CSSProperties, useMemo } from "react";
-import EditIcon from 'shared/assets/icons/edit-icon.svg';
+import EditIcon from 'shared/assets/icons/edit-line-large-icon.svg';
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./Avatar.module.scss";
 

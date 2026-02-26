@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Input } from './Input';
+import { Input, InputTheme } from './Input';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 
@@ -15,91 +15,144 @@ export default {
 
 const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 
-export const Empty = Template.bind({});
-Empty.args = {
-    id: "empty",
+// states : disabled, empty, placeholder
+// styles: default, clear, underline
+
+// theme - state - dark/light
+export const PrimaryEmpty = Template.bind({});
+PrimaryEmpty.args = {
+    id: "primary-empty",
 };
 
-export const Placeholder = Template.bind({});
-Placeholder.args = {
-    id: "placeholder",
+export const PrimaryPlaceholder = Template.bind({});
+PrimaryPlaceholder.args = {
+    id: "primary-placeholder",
     placeholder: 'placeholder',
 };
 
 
-export const EmptyDark = Template.bind({});
-EmptyDark.args = {
-    id: "empty-dark",
+export const PrimaryEmptyDark = Template.bind({});
+PrimaryEmptyDark.args = {
+    id: "primary-empty-dark",
 };
-EmptyDark.decorators = [ThemeDecorator(Theme.DARK)];
+PrimaryEmptyDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const PlaceholderDark = Template.bind({});
-PlaceholderDark.args = {
-    id: "placeholder-dark",
+export const PrimaryPlaceholderDark = Template.bind({});
+PrimaryPlaceholderDark.args = {
+    id: "primary-placeholder-dark",
     placeholder: 'placeholder',
 };
-PlaceholderDark.decorators = [ThemeDecorator(Theme.DARK)];
+PrimaryPlaceholderDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-    id: "disabled",
-    placeholder: 'placeholder',
-    value: 'sometext',
-    disabled: true,
-};
-
-export const DisabledDark = Template.bind({});
-DisabledDark.args = {
-    id: "disabled-dark",
+export const PrimaryReadonly = Template.bind({});
+PrimaryReadonly.args = {
+    id: "primary-Readonly",
     placeholder: 'placeholder',
     value: 'sometext',
-    disabled: true,
-};
-DisabledDark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const EmptyBorderless = Template.bind({});
-EmptyBorderless.args = {
-    id: "empty-borderless",
-    borderless: true
+    readOnly: true,
 };
 
-export const PlaceholderBorderless = Template.bind({});
-PlaceholderBorderless.args = {
-    id: "placeholder-borderless",
-    placeholder: 'placeholder',
-    borderless: true
-};
-
-export const DisabledBorderless = Template.bind({});
-DisabledBorderless.args = {
-    id: "disabled-borderless",
+export const PrimaryReadonlyDark = Template.bind({});
+PrimaryReadonlyDark.args = {
+    id: "primary-readonly-dark",
     placeholder: 'placeholder',
     value: 'sometext',
-    disabled: true,
-    borderless: true
+    readOnly: true,
+};
+PrimaryReadonlyDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const ClearEmpty = Template.bind({});
+ClearEmpty.args = {
+    id: "clear-empty",
+    theme: InputTheme.CLEAR
 };
 
-export const EmptyBorderlessDark = Template.bind({});
-EmptyBorderlessDark.args = {
-    id: "empty-dark-borderless",
-    borderless: true
-};
-EmptyBorderlessDark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const PlaceholderBorderlessDark = Template.bind({});
-PlaceholderBorderlessDark.args = {
-    id: "placeholder-dark-borderless",
+export const ClearPlaceholder = Template.bind({});
+ClearPlaceholder.args = {
+    id: "clear-placeholder",
     placeholder: 'placeholder',
-    borderless: true
+    theme: InputTheme.CLEAR
 };
-PlaceholderBorderlessDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const DisabledBorderlessDark = Template.bind({});
-DisabledBorderlessDark.args = {
-    id: "disabled-dark-borderless",
+export const ClearReadonly = Template.bind({});
+ClearReadonly.args = {
+    id: "clear-readonly",
     placeholder: 'placeholder',
     value: 'sometext',
-    disabled: true,
-    borderless: true
+    readOnly: true,
+    theme: InputTheme.CLEAR
 };
-DisabledBorderlessDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const ClearEmptyDark = Template.bind({});
+ClearEmptyDark.args = {
+    id: "clear-empty-dark",
+    theme: InputTheme.CLEAR
+};
+ClearEmptyDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const ClearPlaceholderDark = Template.bind({});
+ClearPlaceholderDark.args = {
+    id: "clear-placeholder-dark",
+    placeholder: 'placeholder',
+    theme: InputTheme.CLEAR
+};
+ClearPlaceholderDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const ClearReadonlyDark = Template.bind({});
+ClearReadonlyDark.args = {
+    id: "clear-readonly-dark",
+    placeholder: 'placeholder',
+    value: 'sometext',
+    readOnly: true,
+    theme: InputTheme.CLEAR
+};
+ClearReadonlyDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const UnderlineEmpty = Template.bind({});
+UnderlineEmpty.args = {
+    id: "underline-empty",
+    theme: InputTheme.UNDERLINE
+};
+
+export const UnderlineEmptyDark = Template.bind({});
+UnderlineEmptyDark.args = {
+    id: "underline-empty-dark",
+    theme: InputTheme.UNDERLINE
+};
+UnderlineEmptyDark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const UnderlinePlaceholder = Template.bind({});
+UnderlinePlaceholder.args = {
+    id: "underline-placeholder",
+    theme: InputTheme.UNDERLINE,
+    placeholder: 'placeholder',
+    value: 'sometext',
+};
+
+export const UnderlinePlaceholderDark = Template.bind({});
+UnderlinePlaceholderDark.args = {
+    id: "underline-placeholder-dark",
+    theme: InputTheme.UNDERLINE,
+    placeholder: 'placeholder',
+    value: 'sometext',
+};
+UnderlinePlaceholderDark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const UnderlineReadonly = Template.bind({});
+UnderlineReadonly.args = {
+    id: "underline-readonly",
+    theme: InputTheme.UNDERLINE,
+    placeholder: 'placeholder',
+    value: 'sometext',
+    readOnly: true,
+};
+
+export const UnderlineReadonlyDark = Template.bind({});
+UnderlineReadonlyDark.args = {
+    id: "underline-readonly-dark",
+    theme: InputTheme.UNDERLINE,
+    placeholder: 'placeholder',
+    value: 'sometext',
+    readOnly: true
+};
+UnderlineReadonlyDark.decorators = [ThemeDecorator(Theme.DARK)]

@@ -10,9 +10,11 @@
         "lastName": "Фамилия",
         "age": "Возраст",
         "city": "Город",
+        "mainInfo": "Основная информация",
+        "regionalInfo": "Дополнительно",
         "errors": {
-            "getRequestFailed": "Не удалось получить данные профиля",
-            "putRequestFailed": "Не удалось сохранить данные профиля"
+            "GET_REQUEST_FAILED": "Не удалось получить данные профиля",
+            "PUT_REQUEST_FAILED": "Не удалось обновить данные профиля"
         },
         "AvatarModal": {
             "title": "Фото вашего профиля",

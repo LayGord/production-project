@@ -3,13 +3,14 @@ import { useTranslation } from "react-i18next";
 import { Country, CountrySelect } from "entities/Country";
 import { Currency, CurrencySelect } from "entities/Currency";
 import { Text } from "shared/ui/Text/Text";
-import { Input } from "shared/ui/Input/Input";
+import { Input, InputTheme } from "shared/ui/Input/Input";
 import { Loader } from "shared/ui/Loader/Loader";
 import { Avatar, AvatarTheme } from "shared/ui/Avatar/Avatar";
 import { Profile } from "../../model/types/ProfileSchema";
 import { AvatarModal } from "../AvatarModal/AvatarModal";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./ProfileCard.module.scss";
+import { SelectTheme } from "shared/ui/Select/Select";
 
 
 interface ProfileCardProps {
@@ -68,7 +69,7 @@ export const ProfileCard = (props: ProfileCardProps) =>{
         return(
             <div className={ classNames(cls.ProfileCard, {}, [className]) }>
                 <Text 
-                    title={t('ProfileCard.errors.getRequestFailed')}
+                    title={t('ProfileCard.errors.GET_REQUEST_FAILED')}
                 />
             </div>
         )
@@ -76,79 +77,98 @@ export const ProfileCard = (props: ProfileCardProps) =>{
 
     return(
         <div className={ classNames(cls.ProfileCard, {}, [className]) }>
-            <div className={cls.info}>
-                <Avatar 
-                    src={formProfileData?.avatar}
-                    theme={AvatarTheme.DEFAULT}
-                    size={200}
-                    editable={!readonly}
-                    onEdit={onAvatarModal}
-                />
-                <Input
-                    className={cls.input}
-                    id="profileCard.userName"
-                    placeholder={t('ProfileCard.userName')}
-                    value={ formProfileData?.username }
-                    readOnly={readonly}
-                    onChange={onChangeUsername}
-                />
-                <Input
-                    className={cls.input}
-                    id="profileCard.firstName"
-                    placeholder={t('ProfileCard.firstName')}
-                    value={ formProfileData?.firstname }
-                    readOnly={readonly}
-                    onChange={onChangeFirstname}
-                />
-                <Input
-                    className={cls.input}
-                    id="profileCard.lastName"
-                    placeholder={t('ProfileCard.lastName')}
-                    value={ formProfileData?.lastname }
-                    readOnly={readonly}
-                    onChange={onChangeLastname}
-                />
-                <Input
-                    className={cls.input}
-                    id="profileCard.age"
-                    placeholder={t('ProfileCard.age')}
-                    value={ formProfileData?.age }
-                    readOnly={readonly}
-                    onChange={onChangeAge}
-                />
-                <CountrySelect
-                    className={cls.input}
-                    id="profileCard.country"
-                    value={ formProfileData?.country }
-                    readonly={readonly}
-                    onChange={onChangeCountry}
-                />
-                <Input
-                    className={cls.input}
-                    id="profileCard.city"
-                    placeholder={t('ProfileCard.city')}
-                    value={ formProfileData?.city }
-                    readOnly={readonly}
-                    onChange={onChangeCity}
-                />
-                <CurrencySelect
-                    className={cls.input}
-                    id="profileCard.currency"
-                    value={ formProfileData?.currency }
-                    readonly={readonly}
-                    onChange={onChangeCurrency}
-                />
-                {
-                    isAvatarModal && 
-                    <AvatarModal 
-                        isOpen={isAvatarModal}
-                        onClose={onCloseAvatarModal}
-                        src={formProfileData?.avatar || ''}
-                        onChangeAvatar={onChangeAvatar}
+            <Avatar
+                className={classNames(cls.input, {}, [cls.avatar])}
+                src={formProfileData?.avatar}
+                theme={AvatarTheme.ROUNDED}
+                size={200}
+                editable={!readonly}
+                onEdit={onAvatarModal}
+            />
+            <div
+                className={cls.infoColumns}
+            >
+                <div
+                    className={cls.mainInfo}
+                >
+                    <Text text={t('ProfileCard.mainInfo')}/>
+                    <Input
+                        className={cls.input}
+                        id="profileCard.userName"
+                        placeholder={t('ProfileCard.userName')}
+                        value={ formProfileData?.username }
+                        readOnly={readonly}
+                        theme={InputTheme.UNDERLINE}
                     />
-                }
-                
+                    <Input
+                        className={cls.input}
+                        id="profileCard.firstName"
+                        placeholder={t('ProfileCard.firstName')}
+                        value={ formProfileData?.firstname }
+                        readOnly={readonly}
+                        onChange={onChangeFirstname}
+                        theme={InputTheme.UNDERLINE}
+                    />
+                    <Input
+                        className={cls.input}
+                        id="profileCard.lastName"
+                        placeholder={t('ProfileCard.lastName')}
+                        value={ formProfileData?.lastname }
+                        readOnly={readonly}
+                        onChange={onChangeLastname}
+                        theme={InputTheme.UNDERLINE}
+                    />
+                    <Input
+                        className={cls.input}
+                        id="profileCard.age"
+                        placeholder={t('ProfileCard.age')}
+                        value={ formProfileData?.age }
+                        readOnly={readonly}
+                        onChange={onChangeAge}
+                        theme={InputTheme.UNDERLINE}
+                    />
+                </div>
+                <div
+                    className={cls.regionalInfo}
+                >
+                    <Text text={t('ProfileCard.regionalInfo')}/>
+                    <CountrySelect
+                        className={cls.input}
+                        id="profileCard.country"
+                        value={ formProfileData?.country }
+                        readOnly={readonly}
+                        onChange={onChangeCountry}
+                        theme={SelectTheme.UNDERLINE}
+                        
+                    />
+                    <Input
+                        className={cls.input}
+                        id="profileCard.city"
+                        placeholder={t('ProfileCard.city')}
+                        value={ formProfileData?.city }
+                        readOnly={readonly}
+                        onChange={onChangeCity}
+                        theme={InputTheme.UNDERLINE}
+                    />
+                    <CurrencySelect
+                        className={cls.input}
+                        id="profileCard.currency"
+                        value={ formProfileData?.currency }
+                        readOnly={readonly}
+                        onChange={onChangeCurrency}
+                        theme={SelectTheme.UNDERLINE}
+                    />
+                </div>
             </div>
+            {
+                isAvatarModal && 
+                <AvatarModal 
+                    isOpen={isAvatarModal}
+                    onClose={onCloseAvatarModal}
+                    src={formProfileData?.avatar || ''}
+                    onChangeAvatar={onChangeAvatar}
+                />
+            }
         </div>
     );
 };

@@ -1,9 +1,9 @@
 import { useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
+import cls from './ProfilePage.module.scss';
 
 import { 
-    getProfileData, 
     getProfileError, 
     getProfileIsLoading, 
     getProfileReadonly, 
@@ -77,7 +77,7 @@ const ProfilePage = () => {
             reducers={reducers}
             removeAfterUnmount
         >
-            <div>
+            <div className={cls.ProfilePage}>
                 <ProfilePageHeader />
                 <ProfileCard
                     formProfileData={profileData}

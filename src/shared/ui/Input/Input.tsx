@@ -1,6 +1,13 @@
-import { InputHTMLAttributes, memo, useRef } from "react";
+import { InputHTMLAttributes, memo } from "react";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
 import cls from "./Input.module.scss";
+
+
+export enum InputTheme {
+    DEFAULT = 'default',
+    CLEAR = 'clear',
+    UNDERLINE = 'underline',
+}
 
 interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'id' | 'readOnly'> {
     id: string;
@@ -8,7 +15,7 @@ interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value'
     value?: string | number;
     onChange?: (value: string) => void;
     readOnly?: boolean;
-    borderless?: boolean;
+    theme?: InputTheme;
 }
 
 export const Input = memo((props: InputProps) =>{
@@ -21,7 +28,7 @@ export const Input = memo((props: InputProps) =>{
         type,
         placeholder,
         readOnly = false,
-        borderless = false,
+        theme = InputTheme.DEFAULT,
         ...otherProps
     } = props;
 
@@ -31,13 +38,12 @@ export const Input = memo((props: InputProps) =>{
     };
 
     const mods: Mods = {
-        [cls.disabled]: readOnly,
-        [cls.borderless]: borderless,
+        [cls.readonly]: readOnly,
     }
 
     return(
         <div 
-            className={ classNames(cls.Input, mods, [className]) }
+            className={ classNames(cls.Input, mods, [className, cls[theme]]) }
         >
             <input
                 id={id}

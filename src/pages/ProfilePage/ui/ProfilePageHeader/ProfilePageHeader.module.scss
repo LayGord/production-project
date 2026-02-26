@@ -1,9 +1,23 @@
 .ProfilePageHeader {
     display: flex;
+    flex-direction: row;
     margin-bottom: 6px;
     padding-left: 6px;
+    width: 50%;
 }
 
 .editBtns {
-    // margin-left: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.btn {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
+
+    & svg {
+        margin-right: 10px;
+    }
 }

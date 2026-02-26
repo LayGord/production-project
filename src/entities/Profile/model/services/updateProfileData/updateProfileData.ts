@@ -19,7 +19,7 @@ createAsyncThunk<Profile, void, ThunkAPIOptions<string>>(
             return response.data;
 
         } catch (error) {
-            return rejectWithValue('ProfileCard.errors.putRequestFailed');
+            return rejectWithValue('ProfileCard.errors.PUT_REQUEST_FAILED');
         }
     }
 )

@@ -10,6 +10,7 @@
     padding-bottom: 8px;
     padding-inline: 10px;
     border: 1px solid var(--primary-color);
+    border-radius: 4px;
     background: none;
     color: var(--primary-color);
 
@@ -40,12 +41,25 @@
     color: rgb(from var(--primary-color) r g b / 60%);
 }
 
-.disabled {
+.readonly {
     .inputField {
         color: rgb(from var(--primary-color) r g b / 60%);
     }
 }
 
-.borderless > .inputField {
+.clear > .inputField {
     border: none;
+    padding-top: 13px;
+    padding-bottom: 8px;
+    padding-inline: 11px;
+}
+
+.underline > .inputField {
+    border-radius: 0;
+    border-top: none;
+    border-inline: none;
+    border-bottom: 1px solid rgb(from var(--primary-color) r g b / 60%);
+    padding-top: 13px;
+    padding-bottom: 7px;
+    padding-inline: 11px;
 }

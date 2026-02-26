@@ -7,6 +7,11 @@ export interface SelectOptions {
     content: string;
 }
 
+export enum SelectTheme {
+    PRIMARY = 'primary',
+    UNDERLINE = 'underline',
+}
+
 interface SelectProps {
     id?: string;
     className?: string;
@@ -14,7 +19,8 @@ interface SelectProps {
     options?: SelectOptions[];
     value?: string;
     onChange?: (value: string) => void;
-    readonly?: boolean;
+    readOnly?: boolean;
+    theme?: SelectTheme;
 }
 
 export const Select = memo((props: SelectProps) =>{
@@ -25,7 +31,8 @@ export const Select = memo((props: SelectProps) =>{
         options,
         value,
         onChange,
-        readonly = false,
+        readOnly = false,
+        theme = SelectTheme.PRIMARY,
         ...otherProps
     } = props;
     
@@ -47,7 +54,7 @@ export const Select = memo((props: SelectProps) =>{
 
     return(
         <div 
-            className={ classNames(cls.Select, {}, [className]) }
+            className={ classNames(cls.Select, {}, [className, cls[theme]]) }
             {...otherProps}
         >
             { 
@@ -61,7 +68,7 @@ export const Select = memo((props: SelectProps) =>{
             <select
                 id={id}
                 className={cls.selector}
-                disabled={readonly}
+                disabled={readOnly}
                 value={value}
                 onChange={onChangeHandler}
             >
