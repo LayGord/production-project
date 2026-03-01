@@ -28,11 +28,11 @@
   "profile": {
     "avatar": "https://avatar-archives.vercel.app/avatars/psychopath-hacker/avatar.jpeg",
     "username": "admin",
-    "firstname": "Ростислав",
+    "firstname": "Админ",
     "lastname": "Админ",
     "age": 24,
     "country": "Russia",
-    "city": "Krasnodar",
-    "currency": "RUB"
+    "city": "nowhere",
+    "currency": "Unknown"
   }
 }

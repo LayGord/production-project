@@ -46,11 +46,11 @@ const ProfilePage = () => {
         [ValidateProfileDataError.SERVER_ERROR]: t('SERVER_ERROR'),
     }
 
-
-
     useEffect(() => {
-        dispatch(fetchProfileData());
-    }, [dispatch])
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData());
+        }
+    }, [dispatch]);
 
     const onChangeFirstname = useCallback((firstname: string) => {
         dispatch(profileActions.updateFormData({firstname: firstname || ''}))

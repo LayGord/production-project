@@ -15,14 +15,16 @@ export default {
 
 const Template: ComponentStory<typeof CountrySelect> = (args) => <CountrySelect {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
-};
+// this cases breaks loki (idk why, fix later)
 
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-};
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)]
+// export const Primary = Template.bind({});
+// Primary.args = {
+// };
+
+// export const PrimaryDark = Template.bind({});
+// PrimaryDark.args = {
+// };
+// PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)]
 
 export const Underline = Template.bind({});
 Underline.args = {

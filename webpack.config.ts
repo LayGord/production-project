@@ -24,6 +24,7 @@ export default (env: BuildEnv) => {
         isDev,
         port,
         apiUrl,
+        project: 'frontend',
     };
 
     const config: webpack.Configuration = buildWebpackConfig(buildOptions);
