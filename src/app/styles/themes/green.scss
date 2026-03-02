@@ -1,0 +1,15 @@
+body.green {
+    /* Цвета текста */
+    --primary-color: #005611;      /* Основной цвет текста (белый) */
+    --secondary-color: #f1f8f3;    /* Второстепенный цвет текста (светло-серый) */
+    --inverted-primary-color: #f1f8f3;
+    --inverted-secondary-color: #005611;
+
+    /* Фоны */
+    --bg-color: #f1f8f3;
+    --inverted-bg-color: #005611;
+
+    /* Состояния */
+    --error-light: #f87171;
+    --error-dark: #e16262;
+}

@@ -2,10 +2,11 @@
 @import "./variables/global";
 @import "./themes/light";
 @import "./themes/dark";
+@import "./themes/green";
 
 body {
     font: var(--font-m);
-    color: var(--secondary-color);
+    color: var(--primary-color);
     box-sizing: border-box;
     padding: 0;
     margin: 0;
