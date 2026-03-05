@@ -2,8 +2,9 @@ import { Navbar } from 'widgets/Navbar/inxex';
 import { AppRouter } from './providers/routerProvider';
 import { Sidebar } from 'widgets/Sidebar';
 import { Suspense, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { userActions } from 'entities/User/model/slice/userSlice';
+import { getUserInited } from 'entities/User';
 
 
 const App = () => {
@@ -13,13 +14,15 @@ const App = () => {
         dispatch(userActions.initAuthData())
     }, [dispatch]);
 
+    const initedUser = useSelector(getUserInited);
+
     return (
         <div className='app'>
             <Suspense fallback={''}>
                 <Navbar />
                 <div className='content-page'>
                     <Sidebar />
-                    <AppRouter />
+                    {initedUser && <AppRouter />}
                 </div>
             </Suspense>
         </div>

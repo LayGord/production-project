@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from "react";
+import { memo, useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import cls from './ProfilePage.module.scss';
@@ -125,4 +125,4 @@ const ProfilePage = () => {
 
 };
 
-export default ProfilePage;
+export default memo(ProfilePage);
