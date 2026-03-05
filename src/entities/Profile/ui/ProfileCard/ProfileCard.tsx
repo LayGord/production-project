@@ -69,7 +69,7 @@ export const ProfileCard = (props: ProfileCardProps) =>{
         return(
             <div className={ classNames(cls.ProfileCard, {}, [className]) }>
                 <Text 
-                    title={t('ProfileCard.errors.GET_REQUEST_FAILED')}
+                    title={t('ProfileCard.SERVER_ERROR')}
                 />
             </div>
         )
