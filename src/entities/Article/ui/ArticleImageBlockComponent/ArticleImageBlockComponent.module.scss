@@ -1,0 +1,12 @@
+.ArticleImageBlockComponent {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.image {
+    max-width: 100%;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+}

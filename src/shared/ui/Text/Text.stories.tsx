@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Text } from './Text';
+import { Text, TextAlign, TextSize } from './Text';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 
@@ -50,3 +50,55 @@ WithOnlyTextDark.args = {
 };
 WithOnlyTextDark.decorators = [ThemeDecorator(Theme.DARK)];
 
+// align
+
+export const LeftAlign = Template.bind({});
+LeftAlign.args = {
+    title: 'title',
+    text: 'text',
+    align: TextAlign.LEFT
+};
+
+export const CenterAlign = Template.bind({});
+CenterAlign.args = {
+    title: 'title',
+    text: 'text',
+    align: TextAlign.CENTER
+};
+
+export const RightAlign = Template.bind({});
+RightAlign.args = {
+    title: 'title',
+    text: 'text',
+    align: TextAlign.RIGHT
+};
+
+// size 
+
+export const SizeS = Template.bind({});
+SizeS.args = {
+    title: 'title',
+    text: 'text',
+    size: TextSize.S
+};
+
+export const SizeM = Template.bind({});
+SizeM.args = {
+    title: 'title',
+    text: 'text',
+    size: TextSize.M
+};
+
+export const SizeL = Template.bind({});
+SizeL.args = {
+    title: 'title',
+    text: 'text',
+    size: TextSize.L
+};
+
+export const SizeXL = Template.bind({});
+SizeXL.args = {
+    title: 'title',
+    text: 'text',
+    size: TextSize.XL
+};

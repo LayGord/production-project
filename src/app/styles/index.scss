@@ -11,6 +11,7 @@ body {
     padding: 0;
     margin: 0;
     background: var(--bg-color);
+    scrollbar-color: var(--scrollbar-color) var(--scrollbar-bg-color);
 }
 
 .app {
@@ -27,4 +28,7 @@ body {
 .page-wrapper {
     flex-grow: 1;
     padding: 20px;
+    height: calc(100vh - var(--navbar-height));
+    width: 100%;
+    overflow-y: auto;
 }

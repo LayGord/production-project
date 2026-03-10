@@ -1,15 +1,24 @@
 body.light {
-    /* Цвета текста */
+    /* Font */
     --primary-color: #1a1c1e;
     --secondary-color: #f7f7f8;
     --inverted-primary-color: #f7f7f8;
     --inverted-secondary-color: #1a1c1e;
 
-    /* Фоны */
+    /* Background */
     --bg-color: #f7f7f8;
     --inverted-bg-color: #2e2d33;
+    --code-bg-color: #fff;
 
-    /* Состояния */
+    /* Errors */
     --error-light: #ef4444;
     --error-dark: #da3b3b;
+
+    /* Skeleton */
+    --skeleton-shadow: #d0d0d0;
+    --skeleton-color: rgb(0 0 0 / 20%);
+
+    /* Scrollbar */
+    --scrollbar-bg-color: #f7f7f8;
+    --scrollbar-color: #b7b7b7;
 }

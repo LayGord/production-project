@@ -11,7 +11,7 @@
 
     .textBlock {
         font: var(--font-m);
-        color: var(--secondary-color);
+        color: var(--primary-color);
     }
 }
 
@@ -22,5 +22,61 @@
 
     .textBlock {
         color: var(--error-dark);
+    }
+}
+
+// align
+
+.left {
+    text-align: left;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+// size
+
+.text_s {
+    .titleBlock {
+        font: var(--font-m);
+    }
+
+    .textBlock {
+        font: var(--font-s);
+    }
+}
+
+.text_m {
+    .titleBlock {
+        font: var(--font-l);
+    }
+
+    .textBlock {
+        font: var(--font-m);
+    }
+}
+
+.text_l {
+    .titleBlock {
+        font: var(--font-xl);
+    }
+
+    .textBlock {
+        font: var(--font-l);
+    }
+}
+
+.text_xl {
+    .titleBlock {
+        font: var(--font-xl);
+    }
+
+    .textBlock {
+        font: var(--font-xl);
     }
 }

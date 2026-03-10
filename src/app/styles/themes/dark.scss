@@ -1,15 +1,24 @@
 body.dark {
-    /* Цвета текста */
-    --primary-color: #f7f7f8;      /* Основной цвет текста (белый) */
-    --secondary-color: #2e2d33;    /* Второстепенный цвет текста (светло-серый) */
+    /* Font */
+    --primary-color: #f7f7f8;
+    --secondary-color: #2e2d33;
     --inverted-primary-color: #2e2d33;
     --inverted-secondary-color: #f7f7f8;
 
-    /* Фоны */
+    /* Background */
     --bg-color: #2e2d33;
     --inverted-bg-color: #f7f7f8;
+    --code-bg-color: #3d3d44;
 
-    /* Состояния */
+    /* Error */
     --error-light: #f87171;
     --error-dark: #e16262;
+
+    /* Skeleton */
+    --skeleton-shadow: #4c4c4c;
+    --skeleton-color: rgb(142 143 147 / 20%);
+
+    /* Scrollbar */
+    --scrollbar-bg-color: #2e2d33;
+    --scrollbar-color: #6b6b6e;
 }

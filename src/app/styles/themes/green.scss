@@ -1,15 +1,24 @@
 body.green {
-    /* Цвета текста */
-    --primary-color: #005611;      /* Основной цвет текста (белый) */
-    --secondary-color: #f1f8f3;    /* Второстепенный цвет текста (светло-серый) */
+    /* Font */
+    --primary-color: #005611;
+    --secondary-color: #f1f8f3;
     --inverted-primary-color: #f1f8f3;
     --inverted-secondary-color: #005611;
 
-    /* Фоны */
+    /* Background */
     --bg-color: #f1f8f3;
     --inverted-bg-color: #005611;
+    --code-bg-color: #ecf7ef;
 
-    /* Состояния */
+    /* Error */
     --error-light: #f87171;
     --error-dark: #e16262;
+
+    /* Skeleton */
+    --skeleton-shadow: #b5d0a1;
+    --skeleton-color: rgb(from #005611 r g b / 20%);
+
+    /* Scrollbar */
+    --scrollbar-bg-color: #f1f8f3;
+    --scrollbar-color: #788474;
 }
