@@ -8,7 +8,7 @@ export const fetchArticleById = createAsyncThunk<
     string,
     ThunkAPIOptions<string>
 >(
-    'articleDetails/fetchArticleById.ts',
+    'articleDetails/fetchArticleById',
     async (articleId, ThunkAPI) => {
         const { extra, rejectWithValue} = ThunkAPI;
 

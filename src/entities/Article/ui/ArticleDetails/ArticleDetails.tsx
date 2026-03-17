@@ -75,7 +75,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         )
     } else if (error) {
         content = (
-            <div>{t('failed_to_fetch_article')}</div>
+            <div>{t('failedToFetchArticle')}</div>
         )
     } else {
         content = (
