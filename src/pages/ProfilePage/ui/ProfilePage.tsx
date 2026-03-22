@@ -1,4 +1,5 @@
 import { memo, useCallback, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import cls from './ProfilePage.module.scss';
@@ -22,6 +23,8 @@ import { Country } from "entities/Country";
 import { Currency } from "entities/Currency";
 import { getProfileForm } from "entities/Profile";
 import { Text, TextTheme } from "shared/ui/Text/Text";
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useinitialEffect";
+
 
 const reducers: ReducersList = {
     profile: profileReducer
@@ -30,6 +33,7 @@ const reducers: ReducersList = {
 const ProfilePage = () => {
     const { t } = useTranslation('profilePage');
     const dispatch = useAppDispatch();
+    const { id } = useParams<{id: string}>();
 
     const profileData = useSelector(getProfileForm);
     const profileIsLoading = useSelector(getProfileIsLoading);
@@ -46,11 +50,11 @@ const ProfilePage = () => {
         [ValidateProfileDataError.SERVER_ERROR]: t('SERVER_ERROR'),
     }
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id));
         }
-    }, [dispatch]);
+    });
 
     const onChangeFirstname = useCallback((firstname: string) => {
         dispatch(profileActions.updateFormData({firstname: firstname || ''}))

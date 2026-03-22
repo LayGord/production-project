@@ -25,19 +25,42 @@
       "id": 1,
       "username": "admin",
       "password": "123",
+      "role": "ADMIN",
+      "avatarUrl": "https://avatar-archives.vercel.app/avatars/psychopath-hacker/avatar.jpeg"
+    },
+    {
+      "id": 2,
+      "username": "laygord",
+      "password": "laygord",
+      "role": "ADMIN",
       "avatarUrl": "https://avatar-archives.vercel.app/avatars/psychopath-hacker/avatar.jpeg"
     }
+
   ],
-  "profile": {
-    "avatar": "https://avatar-archives.vercel.app/avatars/psychopath-hacker/avatar.jpeg",
-    "username": "admin",
-    "firstname": "admin",
-    "lastname": "admin",
-    "age": 24,
-    "country": "Russia",
-    "city": "nowhere",
-    "currency": "Unknown"
-  },
+  "profile": [
+    {
+      "id": "1",
+      "avatar": "https://avatar-archives.vercel.app/avatars/psychopath-hacker/avatar.jpeg",
+      "username": "admin",
+      "firstname": "admin",
+      "lastname": "admin",
+      "age": 24,
+      "country": "Russia",
+      "city": "nowhere",
+      "currency": "Unknown"
+    },
+    {
+      "id": "2",
+      "avatar": "https://avatar-archives.vercel.app/avatars/psychopath-hacker/avatar.jpeg",
+      "username": "laygord",
+      "firstname": "LayGord",
+      "lastname": "1337",
+      "age": 24,
+      "country": "Russia",
+      "city": "nowhere",
+      "currency": "Unknown"
+    }
+  ],
   "articles": [
     {
       "id": "1",

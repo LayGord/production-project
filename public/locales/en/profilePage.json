@@ -1,7 +1,7 @@
 {
     "title": "This is profile page",
     "ProfileCard": {
-        "header": "Profile card",
+        "header": "Profile",
         "editBtn": "Edit",
         "saveBtn": "Save",
         "cancelBtn": "Cancel",

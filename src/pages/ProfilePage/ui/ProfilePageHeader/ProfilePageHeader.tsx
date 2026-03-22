@@ -2,20 +2,23 @@ import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { 
-    getProfileDataUsername,
+    getProfileData,
     getProfileIsLoading,
     getProfileReadonly,
     profileActions,
     updateProfileData 
 } from "entities/Profile";
+import { getUserAuthData } from "entities/User";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { Text } from "shared/ui/Text/Text";
+import { Skeleton } from "shared/ui/Skeleton/Skeleton";
 import { classNames } from "shared/lib/classNames/classNames";
 import EditIcon from 'shared/assets/icons/edit-line-icon.svg';
 import SaveIcon from 'shared/assets/icons/save-icon.svg';
 import CancelIcon from 'shared/assets/icons/cancel-icon.svg';
 import cls from "./ProfilePageHeader.module.scss";
+
 
 interface ProfilePageheaderProps {
     className?: string;
@@ -30,6 +33,8 @@ export const ProfilePageHeader = (props: ProfilePageheaderProps) =>{
 
     const readonly = useSelector(getProfileReadonly);
     const isLoading = useSelector(getProfileIsLoading);
+    const authData = useSelector(getUserAuthData);
+    const profileData = useSelector(getProfileData);
 
     const dispatch = useAppDispatch();
 
@@ -45,53 +50,63 @@ export const ProfilePageHeader = (props: ProfilePageheaderProps) =>{
         dispatch(updateProfileData())
     }, [dispatch]);
 
+    if (isLoading) {
+        return (
+            <div className={ classNames(cls.ProfilePageHeader, {}, [className]) }>
+                <Skeleton width={'50%'} height={40}/>
+            </div>
+        )
+    }
+
 
     return(
         <div className={ classNames(cls.ProfilePageHeader, {}, [className]) }>
             <Text
-                title={t('ProfileCard.header')}
+                title={`${t('ProfileCard.header')} ${profileData?.username}`}
             />
 
-            <div
-                className={cls.editBtns}
-            >
-                {
-                    readonly ?
-                        (
-                            <Button
-                                className={cls.btn}
-                                theme={ButtonTheme.OUTLINE}
-                                onClick={onEdit}
-                            >   
-                                <EditIcon />
-                                {t('ProfileCard.editBtn')}
-                            </Button>
-                        )
-                        :
-                        (
-                            <>
+            {authData?.id == profileData?.id &&
+                <div
+                    className={cls.editBtns}
+                >
+                    {
+                        readonly ?
+                            (
                                 <Button
                                     className={cls.btn}
                                     theme={ButtonTheme.OUTLINE}
-                                    onClick={onUpdateProfile}
-                                    disabled={isLoading}
-                                >
-                                    <SaveIcon />
-                                    {t('ProfileCard.saveBtn')}
+                                    onClick={onEdit}
+                                >   
+                                    <EditIcon />
+                                    {t('ProfileCard.editBtn')}
                                 </Button>
-                                <Button
-                                    className={cls.btn}
-                                    theme={ButtonTheme.OUTLINE}
-                                    onClick={onCancelEdit}
-                                    disabled={isLoading}
-                                >
-                                    <CancelIcon />
-                                    {t('ProfileCard.cancelBtn')}
-                                </Button>
-                            </>
-                        )
-                }
-            </div>
+                            )
+                            :
+                            (
+                                <>
+                                    <Button
+                                        className={cls.btn}
+                                        theme={ButtonTheme.OUTLINE}
+                                        onClick={onUpdateProfile}
+                                        disabled={isLoading}
+                                    >
+                                        <SaveIcon />
+                                        {t('ProfileCard.saveBtn')}
+                                    </Button>
+                                    <Button
+                                        className={cls.btn}
+                                        theme={ButtonTheme.OUTLINE}
+                                        onClick={onCancelEdit}
+                                        disabled={isLoading}
+                                    >
+                                        <CancelIcon />
+                                        {t('ProfileCard.cancelBtn')}
+                                    </Button>
+                                </>
+                            )
+                    }
+                </div>
+            }
         </div>
     );
 };

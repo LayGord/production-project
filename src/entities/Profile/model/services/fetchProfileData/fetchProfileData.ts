@@ -5,13 +5,17 @@ import { Profile, ValidateProfileDataError } from "../../types/ProfileSchema";
 export interface FetchProfileDataProps {};
 
 export const fetchProfileData = 
-createAsyncThunk<Profile, void, ThunkAPIOptions<string>>(
+createAsyncThunk<
+    Profile,
+    string,
+    ThunkAPIOptions<string>
+>(
     'profile/fetchProfileData',
-    async (_, ThunkAPI) => {
+    async (profileId, ThunkAPI) => {
         const { extra, rejectWithValue} = ThunkAPI;
 
         try {
-            const response = await extra.api?.get<Profile>('/profile');
+            const response = await extra.api?.get<Profile>(`/profile/${profileId}`);
             if (!response?.data) {
                 throw new Error();
             };
