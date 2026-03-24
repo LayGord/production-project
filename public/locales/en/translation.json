@@ -1,4 +1,8 @@
 {
+  "AddCommentForm": {
+    "submitBtn": "Send",
+    "placeholder": "New comment"
+  },
   "Navbar": {
     "main_page": "Main",
     "about_page": "About",

@@ -23,7 +23,7 @@ import { Country } from "entities/Country";
 import { Currency } from "entities/Currency";
 import { getProfileForm } from "entities/Profile";
 import { Text, TextTheme } from "shared/ui/Text/Text";
-import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useinitialEffect";
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 
 
 const reducers: ReducersList = {

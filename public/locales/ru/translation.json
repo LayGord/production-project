@@ -1,4 +1,8 @@
 {
+  "AddCommentForm": {
+    "submitBtn": "Отправить",
+    "placeholder": "Новый комментарий"
+  },
   "Navbar": {
     "main_page": "Главная",
     "about_page": "О нас",

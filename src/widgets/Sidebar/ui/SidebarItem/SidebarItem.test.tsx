@@ -1,8 +1,8 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
 import { SidebarItem } from "./SidebarItem";;
 import MainPageIcon from 'shared/assets/icons/home-icon.svg';
-import { SidebarItemType } from '../../lib/item';
+import { SidebarItemType } from '../../model/types/SidebarITemType';
 
 describe('widgets/SidebarItem', () => {
     test('default render', () => {

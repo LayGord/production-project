@@ -1,12 +1,12 @@
 import { useParams } from 'react-router-dom';
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetails } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useinitialEffect';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
+import { Text, TextSize } from 'shared/ui/Text/Text';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
     DynamicReducerLoader,
@@ -19,6 +19,9 @@ import {
 import { getArticleDetailsCommentsIsLoading } from '../../model/selectors/comments';
 import cls from './ArticleDetailsPage.module.scss';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { AddCommentForm } from 'features/addCommentForm';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
+
 
 interface ArticleDetailsPageProps {
    className?: string;
@@ -33,6 +36,10 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const comments = useSelector(getArticleDetailsComments.selectAll);
     const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
     const dispatch = useAppDispatch();
+
+    const onSendComment = useCallback((text: string) => {
+        dispatch(addCommentForArticle(text))
+    }, [dispatch])
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
@@ -62,6 +69,9 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     size={TextSize.L}
                     className={cls.comments}
                     title={t('commentsBlock')}
+                />
+                <AddCommentForm
+                    onSendComment={onSendComment}
                 />
                 <CommentList
                     className={cls.comments}
