@@ -5,6 +5,7 @@ import { Country } from "entities/Country";
 import { Currency } from "entities/Currency";
 
 const profileData: Profile = {
+    id: '1',
     username: "username1",
     firstname: "firstname1",
     lastname: "lastname1",

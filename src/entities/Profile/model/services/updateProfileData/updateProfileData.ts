@@ -23,7 +23,7 @@ createAsyncThunk<
         };
 
         try {
-            const response = await extra.api?.put<Profile>('/profiles', formData);
+            const response = await extra.api?.put<Profile>(`/profiles/${formData?.id}`, formData);
             if (!response?.data) {
                 throw new Error()
             };

@@ -6,6 +6,7 @@ import { fetchProfileData } from "../services/fetchProfileData/fetchProfileData"
 import { updateProfileData } from "../services/updateProfileData/updateProfileData";
 
 const profileData: Profile = {
+    id: '1',
     username: "username1",
     firstname: "firstname1",
     lastname: "lastname1",

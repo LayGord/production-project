@@ -10,7 +10,7 @@ import { RouterPaths } from 'shared/config/router/routerVars';
 
 interface CommentCardProps {
    className?: string;
-   comment: Comment;
+   comment?: Comment;
    isLoading?: boolean;
 }
 
@@ -24,7 +24,7 @@ export const CommentCard = (props: CommentCardProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.CommentCard, {}, [className])}>
+            <div className={classNames(cls.CommentCard, {}, [className, cls.loading])}>
                 <div className={cls.header}>
                     <Skeleton
                         border={'50%'}
@@ -45,21 +45,21 @@ export const CommentCard = (props: CommentCardProps) => {
     return (
         <div className={classNames(cls.CommentCard, {}, [className])}>
             <AppLink
-                to={`${RouterPaths.profiles}${comment.user.id}`}
+                to={`${RouterPaths.profiles}${comment?.user.id}`}
                 className={cls.header}
             >
                 <Avatar
-                    src={comment.user.avatarUrl || '' }
+                    src={comment?.user.avatarUrl || '' }
                     size={30}
                     theme={AvatarTheme.ROUNDED}
                 />
                 <Text
-                    title={comment.user.username}
+                    title={comment?.user.username}
                 />
             </AppLink>
             <Text
                 className={cls.commentText}
-                text={comment.text}
+                text={comment?.text}
             />
         </div>
     );
