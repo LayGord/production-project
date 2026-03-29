@@ -7,10 +7,11 @@ import { Input, InputTheme } from "shared/ui/Input/Input";
 import { Avatar, AvatarTheme } from "shared/ui/Avatar/Avatar";
 import { classNames } from "shared/lib/classNames/classNames";
 import { SelectTheme } from "shared/ui/Select/Select";
-import { Skeleton } from "shared/ui/Skeleton/Skeleton";
 import { Profile } from "../../model/types/ProfileSchema";
 import { AvatarModal } from "../AvatarModal/AvatarModal";
+import { ProfileCardSkeleton } from "./ProfileCardSkeleton";
 import cls from "./ProfileCard.module.scss";
+
 
 interface ProfileCardProps {
     className?: string;
@@ -59,61 +60,7 @@ export const ProfileCard = (props: ProfileCardProps) =>{
     let content;
 
     if (isLoading) {
-        content = (
-            <>
-                <Skeleton 
-                    className={classNames(cls.input, {}, [cls.avatar])}
-                    height={200}
-                    width={200}
-                    border={'50%'}
-                />
-                <div
-                    className={cls.infoColumns}
-                >
-                    <div
-                        className={cls.mainInfo}
-                    >
-                        <Skeleton height={20} width={180} className={cls.colTitle}/>
-                        <Skeleton
-                            className={cls.input}
-                            height={45} width={'100%'}
-                        />
-                        <Skeleton
-                            className={cls.input}
-                            height={45} width={'100%'}
-                        />
-                        <Skeleton
-                            className={cls.input}
-                            height={45} width={'100%'}
-                        />
-                        <Skeleton
-                            className={cls.input}
-                            height={45} width={'100%'}
-                        />
-                    </div>
-                    <div
-                        className={cls.regionalInfo}
-                    >
-                        <Skeleton
-                            className={cls.colTitle}
-                            height={20} width={180}
-                        />
-                        <Skeleton
-                            className={cls.input}
-                            height={45} width={'100%'}
-                        />
-                        <Skeleton
-                            className={cls.input}
-                            height={45} width={'100%'}
-                        />
-                        <Skeleton
-                            className={cls.input}
-                            height={45} width={'100%'}
-                        />
-                    </div>
-                </div>
-            </>
-        )
+        content = ( <ProfileCardSkeleton />)
     } else if (error) {
         content = (<Text title={t('ProfileCard.SERVER_ERROR')}/>)
     } else {

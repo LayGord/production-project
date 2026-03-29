@@ -1,12 +1,12 @@
-import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './CommentCard.module.scss';
-import { Comment } from '../../model/types/comment';
 import { Avatar, AvatarTheme } from 'shared/ui/Avatar/Avatar';
-import { Text, TextSize } from 'shared/ui/Text/Text';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { Text } from 'shared/ui/Text/Text';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { RouterPaths } from 'shared/config/router/routerVars';
+import { CommentCardSkeleton } from './CommentCardSkeleton';
+import { Comment } from '../../model/types/comment';
+import cls from './CommentCard.module.scss';
+
 
 interface CommentCardProps {
    className?: string;
@@ -20,26 +20,9 @@ export const CommentCard = (props: CommentCardProps) => {
         comment,
         isLoading = false,
     } = props;
-    const { t } = useTranslation()
 
     if (isLoading) {
-        return (
-            <div className={classNames(cls.CommentCard, {}, [className, cls.loading])}>
-                <div className={cls.header}>
-                    <Skeleton
-                        border={'50%'}
-                        width={30}
-                        height={30}
-                    />
-                    <Skeleton width={'45%'} height={20}/>
-                </div>
-                <Skeleton
-                    className={cls.commentText}
-                    width={'95%'}
-                    height={50}
-                />
-            </div>
-        )
+        return ( <CommentCardSkeleton /> )
     }
 
     return (

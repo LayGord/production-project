@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
@@ -7,6 +7,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Avatar, AvatarTheme } from 'shared/ui/Avatar/Avatar';
 import { Text, TextSize } from 'shared/ui/Text/Text';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import EyeIcon from 'shared/assets/icons/eye-icon.svg';
 import CalendarIcon from 'shared/assets/icons/calendar-icon.svg';
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData';
@@ -19,6 +20,7 @@ import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/Articl
 import { ArticleBlock, ArticleBlockType } from '../../model/types/Article';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
+import { ArticleDetailsSkeleton } from './ArticleDetailsSkeleton';
 import cls from './ArticleDetails.module.scss';
 
 
@@ -53,26 +55,20 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         }
     }, []);
 
-    useEffect(() => {
-        if (__PROJECT__ != 'storybook') {
-            dispatch(fetchArticleById(id));
-        }
-    }, [dispatch, id]);
+    useInitialEffect( () => {
+        dispatch(fetchArticleById(id));
+    })
+
+    // useEffect(() => {
+    //     if (__PROJECT__ != 'storybook') {
+    //         dispatch(fetchArticleById(id)); 
+    //     }
+    // }, [dispatch, id]);
 
     let content;
 
     if (isLoading) {
-        content = (
-            <>
-                <Skeleton className={cls.avatar} width={200} height={200} border={'50%'}/>
-                <Skeleton className={cls.title} width={'50%'} height={24} />
-                <Skeleton className={cls.subtitle} width={'40%'} height={24} />
-                <Skeleton className={cls.subtitle} width={'10%'} height={40} />
-                <Skeleton className={cls.block} width={'100%'} height={200} />
-                <Skeleton className={cls.block} width={'100%'} height={200} />
-                <Skeleton className={cls.block} width={'100%'} height={200} />
-            </>
-        )
+        content = ( <ArticleDetailsSkeleton />)
     } else if (error) {
         content = (
             <div>{t('failedToFetchArticle')}</div>
