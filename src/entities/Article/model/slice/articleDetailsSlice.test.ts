@@ -10,6 +10,10 @@ const article: Article = {
     subtitle: "Test article test article test article",
     img: '',
     views: 100,
+    user: {
+        id: '1',
+        username: 'admin'
+    },
     createdAt: "01.01.0001",
     type: [ArticleType.IT],
     blocks: [

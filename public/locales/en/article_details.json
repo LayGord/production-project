@@ -1,4 +1,5 @@
 {
+    "backLink": "<< Back to articles",
     "incorrectId": "Article ID incorrect or not given",
     "failedToFetchArticle": "Error while loading this article :(",
     "commentsBlock": "Comments",

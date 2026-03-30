@@ -15,7 +15,6 @@
 
 .image {
     object-fit: cover;
-    border: 1px solid var(--primary-color);
 }
 
 .editBtn {
@@ -39,5 +38,11 @@
 
     .editBtn {
         border-radius: 50%;
+    }
+}
+
+.border {
+    .image {
+        border: 1px solid var(--primary-color);
     }
 }

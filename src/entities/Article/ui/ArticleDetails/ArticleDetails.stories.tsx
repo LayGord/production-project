@@ -22,6 +22,10 @@ const data: Article = {
     img: JSLogo,
     views: 100,
     createdAt: "01.01.0001",
+    user: {
+        id: '1',
+        username: 'admin'
+    },
     type: [ArticleType.IT],
     blocks: [
         {

@@ -1,0 +1,102 @@
+// ArticleDetailsView tile variant
+
+.tile {
+    .created {
+        position: absolute;
+        right: 5px;
+        top: 0;
+        display: none;
+    }
+
+    .ArticleListItem {
+        width: 230px;
+
+        &:hover {
+            .created {
+                display: block;
+            }
+
+            transform: scale(1.01);
+            transition: transform 0.2s;
+        }
+    }
+
+    .imageWrapper {
+        width: 200px;
+        height: 200px;
+        position: relative;
+    }
+
+    .info {
+        display: flex;
+        margin-block: 10px;
+    }
+
+    .type p {
+        width: 100px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .title p {
+        width: 200px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}
+
+// ArticleDetailsView list variant
+
+.list {
+    &.ArticleListItem {
+        width: 100%;
+    }
+
+    .header {
+        display: flex;
+    }
+
+    .userInfo {
+        display: flex;
+        gap: 10px;
+    }
+
+    /* stylelint-disable-next-line no-descending-specificity */
+    .created {
+        margin-left: auto;
+    }
+
+    .articleImage {
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+    }
+
+    .articleText p {
+        margin-top: 20px;
+        overflow: hidden;
+        max-height: 150px;
+        white-space: wrap;
+    }
+
+    .footer {
+        margin-top: 30px;
+        display: flex;
+    }
+
+    .views {
+        margin-left: auto;
+    }
+}
+
+// common block styles
+
+/* stylelint-disable-next-line no-descending-specificity */
+.views {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}

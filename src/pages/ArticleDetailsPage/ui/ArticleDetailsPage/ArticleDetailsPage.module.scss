@@ -1,7 +1,15 @@
 .ArticleDetailsPage {
     width: 100%;
+    position: relative;
+}
+
+.backLink {
+    position: absolute;
+    left: 10px;
+    top: 10px;
 }
 
 .comments {
     padding-inline: 80px;
+    margin-top: 20px;
 }

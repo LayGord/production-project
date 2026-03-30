@@ -71,7 +71,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         content = ( <ArticleDetailsSkeleton />)
     } else if (error) {
         content = (
-            <div>{t('failedToFetchArticle')}</div>
+            <div
+                className={cls.errorMessage}
+            >{t('failedToFetchArticle')}</div>
         )
     } else {
         content = (

@@ -2,11 +2,13 @@ import { useParams } from 'react-router-dom';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { ArticleDetails } from 'entities/Article';
+import { ArticleDetails, getArticleDetailsError } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Text, TextSize } from 'shared/ui/Text/Text';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { RouterPaths } from 'shared/config/router/routerVars';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
     DynamicReducerLoader,
@@ -34,6 +36,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const { t } = useTranslation('article_details');
     const { id } = useParams<{ id: string }>();
     const comments = useSelector(getArticleDetailsComments.selectAll);
+    const articleLoadingError = useSelector(getArticleDetailsError);
     const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
     const dispatch = useAppDispatch();
 
@@ -61,23 +64,34 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         )
     }
 
+
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+                <AppLink
+                    className={cls.backLink}
+                    to={RouterPaths.articles}
+                >
+                    {t('backLink')}
+                </AppLink>
                 <ArticleDetails id={id}/>
-                <Text
-                    size={TextSize.L}
-                    className={cls.comments}
-                    title={t('commentsBlock')}
-                />
-                <AddCommentForm
-                    onSendComment={onSendComment}
-                />
-                <CommentList
-                    className={cls.comments}
-                    comments={comments}
-                    isLoading={commentsIsLoading}
-                />
+                { !articleLoadingError && 
+                    <>
+                        <Text
+                            size={TextSize.L}
+                            className={cls.comments}
+                            title={t('commentsBlock')}
+                        />
+                        <AddCommentForm
+                            onSendComment={onSendComment}
+                        />
+                        <CommentList
+                            className={cls.comments}
+                            comments={comments}
+                            isLoading={commentsIsLoading}
+                        />
+                    </>
+                }
             </div>
         </DynamicReducerLoader>
     );

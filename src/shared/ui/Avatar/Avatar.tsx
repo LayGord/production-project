@@ -1,13 +1,13 @@
 import { CSSProperties, useMemo } from "react";
 import EditIcon from 'shared/assets/icons/edit-line-large-icon.svg';
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames, Mods } from "shared/lib/classNames/classNames";
 import cls from "./Avatar.module.scss";
 
 import { Button, ButtonTheme } from "../Button/Button";
 
 export enum AvatarTheme {
     DEFAULT = 'default',
-    ROUNDED = 'rounded'
+    ROUNDED = 'rounded',
 }
 
 interface AvatarProps {
@@ -18,6 +18,7 @@ interface AvatarProps {
     editable?: boolean;
     onEdit?: () => void;
     theme?: AvatarTheme;
+    border?: boolean;
 }
 
 export const Avatar = (props: AvatarProps) => {
@@ -28,7 +29,8 @@ export const Avatar = (props: AvatarProps) => {
         size = 100,
         editable = false,
         onEdit,
-        theme = AvatarTheme.DEFAULT
+        theme = AvatarTheme.DEFAULT,
+        border = true,
     } = props;
 
     const style: CSSProperties = useMemo(() => ({
@@ -36,10 +38,14 @@ export const Avatar = (props: AvatarProps) => {
         height: size,
     }), [size]);
 
+    const mods: Mods = {
+        [cls.border]: border,
+    }
+
     if (editable) {
         return (
             <div
-                className={ classNames(cls.Avatar, {}, [className, cls[theme]]) }
+                className={ classNames(cls.Avatar, mods, [className, cls[theme]]) }
                 style={style}
             >
                 <img
@@ -62,7 +68,7 @@ export const Avatar = (props: AvatarProps) => {
 
     return (
         <div
-            className={ classNames(cls.Avatar, {}, [className, cls[theme]]) }
+            className={ classNames(cls.Avatar, mods, [className, cls[theme]]) }
             style={style}
         >
             <img

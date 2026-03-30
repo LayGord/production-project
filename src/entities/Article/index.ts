@@ -4,6 +4,7 @@ export {
 
 export type {
     Article,
+    ArticleListView,
 } from './model/types/Article';
 
 export type {
@@ -12,8 +13,6 @@ export type {
 
 export { getArticleDetailsData } from './model/selectors/getArticleDetailsData/getArticleDetailsData';
 export { getArticleDetailsError } from './model/selectors/getArticleDetailsError/getArticleDetailsError';
-export { getArticleDetailsIsLoading } from './model/selectors/getArticleDetailsIsLoading/getArticleDetailsIsLoading';
+//export { getArticleDetailsIsLoading } from './model/selectors/getArticleDetailsIsLoading/getArticleDetailsIsLoading';
 
-export {
-    fetchArticleById,
-} from './model/services/fetchArticleById/fetchArticleById';
+export { ArticleList } from './ui/ArticleList/ArticleList';
