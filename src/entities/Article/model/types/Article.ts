@@ -49,6 +49,6 @@ export interface Article {
 }
 
 export enum ArticleListView {
-    'LIST' = 'list',
-    'TILE' = 'tile',
+    'LIST' = 'ArticleListItem_list',
+    'TILE' = 'ArticleListItem_tile',
 }

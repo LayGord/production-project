@@ -23,8 +23,15 @@ export const ArticleList = (props: ArticleListProps) => {
     const { t } = useTranslation()
 
     const renderArticleCard = useCallback((articleData: Article) => {
-        return <ArticleListItem key={articleData.id} article={articleData} view={view}/>
-    }, [view])
+        return (
+            <ArticleListItem
+                key={articleData.id}
+                article={articleData}
+                view={view}
+                isLoading={isLoading}
+            />
+        )
+    }, [view, isLoading])
 
     return (
         <div className={classNames(cls.ArticleList, {}, [className])}>

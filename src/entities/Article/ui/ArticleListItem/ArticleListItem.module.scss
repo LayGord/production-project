@@ -1,24 +1,19 @@
 // ArticleDetailsView tile variant
 
-.tile {
+.ArticleListItem_tile {
+    width: 230px;
+
+    .articleImage {
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+    }
+
     .created {
         position: absolute;
         right: 5px;
         top: 0;
         display: none;
-    }
-
-    .ArticleListItem {
-        width: 230px;
-
-        &:hover {
-            .created {
-                display: block;
-            }
-
-            transform: scale(1.01);
-            transition: transform 0.2s;
-        }
     }
 
     .imageWrapper {
@@ -32,33 +27,41 @@
         margin-block: 10px;
     }
 
-    .type p {
-        width: 100px;
+    .type p,
+    .title p {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
     }
 
+    .type p {
+        width: 100px;
+    }
+
     .title p {
         width: 200px;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+    }
+
+    &:hover {
+        .created {
+            display: block;
+        }
+
+        transform: scale(1.01);
+        transition: transform 0.2s;
     }
 }
 
 // ArticleDetailsView list variant
 
-.list {
-    &.ArticleListItem {
-        width: 100%;
-    }
+.ArticleListItem_list {
+    width: 100%;
 
     .header {
         display: flex;
     }
 
-    .userInfo {
+    .user {
         display: flex;
         gap: 10px;
     }
@@ -85,13 +88,7 @@
         margin-top: 30px;
         display: flex;
     }
-
-    .views {
-        margin-left: auto;
-    }
 }
-
-// common block styles
 
 /* stylelint-disable-next-line no-descending-specificity */
 .views {
