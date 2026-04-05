@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
+//import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Article, ArticleListView } from '../../model/types/Article';
 import cls from './ArticleList.module.scss';
@@ -18,20 +18,30 @@ export const ArticleList = (props: ArticleListProps) => {
         className,
         articles,
         isLoading,
-        view = ArticleListView.LIST,
+        view = ArticleListView.TILE,
     } = props;
-    const { t } = useTranslation()
+    //const { t } = useTranslation('article')
 
-    const renderArticleCard = useCallback((articleData: Article) => {
+    const renderArticleCard = useCallback((articleData?: Article) => {
         return (
             <ArticleListItem
-                key={articleData.id}
+                key={articleData?.id}
                 article={articleData}
                 view={view}
                 isLoading={isLoading}
             />
         )
-    }, [view, isLoading])
+    }, [view, isLoading]);
+
+    if (isLoading) {
+        return (
+            <div className={classNames(cls.ArticleList, {}, [className])}>
+                {
+                    new Array( view === ArticleListView.LIST ? 3 : 12).fill(0).map(() => renderArticleCard())
+                }
+            </div>
+        )
+    };
 
     return (
         <div className={classNames(cls.ArticleList, {}, [className])}>

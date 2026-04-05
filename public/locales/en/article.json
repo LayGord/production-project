@@ -1,3 +1,6 @@
 {
-    "read": "Read full..."
+    "read": "Read full...",
+    "errors": {
+        "emptyArticle": "Article not found...("
+    }
 }

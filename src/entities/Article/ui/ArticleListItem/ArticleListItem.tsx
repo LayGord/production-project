@@ -5,17 +5,16 @@ import { Avatar, AvatarTheme } from 'shared/ui/Avatar/Avatar';
 import { Text } from 'shared/ui/Text/Text';
 import EyeIcon from 'shared/assets/icons/eye-icon.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Article, ArticleBlockType, ArticleListView, ArticleTextBlock } from '../../model/types/Article';
-import cls from './ArticleListItem.module.scss';
 import { RouterPaths } from 'shared/config/router/routerVars';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { IsLoading } from 'entities/Comment/ui/CommentCard/CommentCard.stories';
+import { Article, ArticleBlockType, ArticleListView, ArticleTextBlock } from '../../model/types/Article';
 import { ArticleListItemSkeleton } from './ArticleListItemSkeleton';
+import cls from './ArticleListItem.module.scss';
 
 
 interface ArticleListItemProps {
    className?: string;
-   article: Article;
+   article?: Article;
    view?: ArticleListView;
    isLoading?: boolean;
 }
@@ -38,6 +37,14 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     };
 
     // reusable staff
+
+    if (!article) {
+        return (
+            <div className={classNames(cls[view], {}, [className])}>
+                {t('errors.EMPTY_ARTICLE')}
+            </div>
+        )
+    }
 
     const articleDetailsPath = `${RouterPaths.article_details}${article.id}`;
 
@@ -108,6 +115,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         </div>
                     </div>
                     <Text
+                        className={cls.title}
                         title={article.title}
                     />
                     {typeBlock}

@@ -4,8 +4,9 @@ export {
 
 export type {
     Article,
-    ArticleListView,
 } from './model/types/Article';
+
+export { ArticleListView } from './model/types/Article';
 
 export type {
     ArticleDetailsSchema,
@@ -16,3 +17,4 @@ export { getArticleDetailsError } from './model/selectors/getArticleDetailsError
 //export { getArticleDetailsIsLoading } from './model/selectors/getArticleDetailsIsLoading/getArticleDetailsIsLoading';
 
 export { ArticleList } from './ui/ArticleList/ArticleList';
+export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';

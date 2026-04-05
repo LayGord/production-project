@@ -59,6 +59,7 @@
 
     .header {
         display: flex;
+        margin-bottom: 10px;
     }
 
     .user {
@@ -69,6 +70,14 @@
     /* stylelint-disable-next-line no-descending-specificity */
     .created {
         margin-left: auto;
+    }
+
+    .title {
+        margin-bottom: 10px;
+    }
+
+    .type {
+        margin-bottom: 20px;
     }
 
     .articleImage {
