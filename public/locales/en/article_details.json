@@ -1,7 +1,12 @@
 {
     "backLink": "<< Back to articles",
-    "incorrectId": "Article ID incorrect or not given",
-    "failedToFetchArticle": "Error while loading this article :(",
     "commentsBlock": "Comments",
-    "emptyCommentList": "Comments not found yet"
+    "emptyCommentList": "Comments not found yet",
+    "errors": {
+        "INCORRECT_ARTICLE_ID": "Incorrect article ID",
+        "FAILED_TO_FETCH_ARTICLE": "Error while loading this article :(",
+        "FAILED_TO_FETCH_ARTICLE_COMMENTS": "Failed to fetch article comments",
+        "ADD_COMMENT_INCORRECT_OR_MISSING_DATA": "Missng comment text, user data or article ...",
+        "ADD_COMMENT_REQUEST_FAILED": "Failed to send comment"
+    }
 }

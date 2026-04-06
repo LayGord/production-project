@@ -15,7 +15,7 @@ createAsyncThunk<
         try {
 
             if (!articleId) {
-                return rejectWithValue('error');
+                return rejectWithValue('errors.INCORRECT_ARTICLE_ID');
             };
 
             const response = await extra.api?.get<Comment[]>('/comments', {
@@ -32,7 +32,7 @@ createAsyncThunk<
             return response.data;
 
         } catch (error) {
-            return rejectWithValue('error');
+            return rejectWithValue('errors.FAILED_TO_FETCH_ARTICLE_COMMENTS');
         }
     }
 )

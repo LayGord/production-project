@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Avatar, AvatarTheme } from 'shared/ui/Avatar/Avatar';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
@@ -73,7 +72,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         content = (
             <div
                 className={cls.errorMessage}
-            >{t('failedToFetchArticle')}</div>
+            >{t('errors.FAILED_TO_FETCH_ARTICLE')}</div>
         )
     } else {
         content = (

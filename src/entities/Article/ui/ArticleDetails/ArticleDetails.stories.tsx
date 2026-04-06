@@ -1,12 +1,15 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ArticleDetails } from './ArticleDetails';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
 import { Article } from 'entities/Article';
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/Article';
+import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 import JSLogo from 'shared/assets/tests/JavaScript-logo.jpg';
+import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+import { ArticleDetails } from './ArticleDetails';
+
 
 export default {
-    title: 'entities/ArticleDetails',
+    title: 'entities/Article/ArticleDetails',
     component: ArticleDetails,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -52,19 +55,36 @@ const data: Article = {
     ]
 }
 
-export const Default = Template.bind({});
-Default.args = {
-    
-};
-Default.decorators = [StoreDecorator({articleDetails: {
-    data: data
-}})];
+export const Primary = Template.bind({});
+Primary.args = {};
+Primary.decorators = [
+    StoreDecorator(
+        {articleDetails: {data: data}}
+    )
+];
 
+export const PrimaryIsLoading = Template.bind({});
+PrimaryIsLoading.args = {};
+PrimaryIsLoading.decorators = [
+    StoreDecorator(
+        {articleDetails: {isLoading: true}}
+    )
+];
 
-export const Loading = Template.bind({});
-Loading.args = {
-    
-};
-Loading.decorators = [StoreDecorator({articleDetails: {
-    isLoading: true
-}})];
+export const Dark = Template.bind({});
+Dark.args = {};
+Dark.decorators = [
+    StoreDecorator(
+        {articleDetails: {data: data}}
+    ),
+    ThemeDecorator(Theme.DARK)
+];
+
+export const DarkIsLoading = Template.bind({});
+DarkIsLoading.args = {};
+DarkIsLoading.decorators = [
+    StoreDecorator(
+        {articleDetails: {isLoading: true}}
+    ),
+    ThemeDecorator(Theme.DARK)
+];

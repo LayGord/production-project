@@ -3,11 +3,16 @@ import { useTranslation } from 'react-i18next';
 import { Card } from 'shared/ui/Card/Card';
 import { Avatar, AvatarTheme } from 'shared/ui/Avatar/Avatar';
 import { Text } from 'shared/ui/Text/Text';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 import EyeIcon from 'shared/assets/icons/eye-icon.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { RouterPaths } from 'shared/config/router/routerVars';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { Article, ArticleBlockType, ArticleListView, ArticleTextBlock } from '../../model/types/Article';
+import {
+    Article,
+    ArticleBlockType,
+    ArticleListView,
+    ArticleTextBlock,
+} from '../../model/types/Article';
 import { ArticleListItemSkeleton } from './ArticleListItemSkeleton';
 import cls from './ArticleListItem.module.scss';
 
@@ -41,7 +46,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     if (!article) {
         return (
             <div className={classNames(cls[view], {}, [className])}>
-                {t('errors.EMPTY_ARTICLE')}
+                {t('errors.ARTICLE_NOT_FOUND')}
             </div>
         )
     }

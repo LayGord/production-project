@@ -44,9 +44,9 @@ Primary.decorators = [
     })
 ];
 
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {};
-PrimaryDark.decorators = [
+export const Dark = Template.bind({});
+Dark.args = {};
+Dark.decorators = [
     StoreDecorator({
         profile: {
             form: profileData,
@@ -57,9 +57,9 @@ PrimaryDark.decorators = [
     ThemeDecorator(Theme.DARK)
 ];
 
-export const Error = Template.bind({});
-Error.args = {};
-Error.decorators = [
+export const PrimaryError = Template.bind({});
+PrimaryError.args = {};
+PrimaryError.decorators = [
     StoreDecorator({
         profile: {
             form: {...profileData, username: ''},
@@ -70,9 +70,9 @@ Error.decorators = [
     })
 ];
 
-export const ErrorDark = Template.bind({});
-ErrorDark.args = {};
-ErrorDark.decorators = [
+export const DarkError= Template.bind({});
+DarkError.args = {};
+DarkError.decorators = [
     StoreDecorator({
         profile: {
             form: {...profileData, username: ''},

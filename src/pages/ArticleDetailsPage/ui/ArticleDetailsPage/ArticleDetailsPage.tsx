@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { AddCommentForm } from 'features/addCommentForm';
 import { ArticleDetails, getArticleDetailsError } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
@@ -18,11 +19,12 @@ import {
     articleDetailsCommentsReducer,
     getArticleDetailsComments,
 } from '../../model/slice/articleDetailsCommentsSlice';
-import { getArticleDetailsCommentsIsLoading } from '../../model/selectors/comments';
-import cls from './ArticleDetailsPage.module.scss';
+import {
+    getArticleDetailsCommentsIsLoading,
+} from '../../model/selectors/getArticleDetailsCommentsIsLoading/getArticleDetailsCommentsIsLoading';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { AddCommentForm } from 'features/addCommentForm';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
+import cls from './ArticleDetailsPage.module.scss';
 
 
 interface ArticleDetailsPageProps {
@@ -59,7 +61,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     if (!id) {
         return (
             <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-                {t('incorrectId')}
+                {t('errors.INCORRECT_ARTICLE_ID')}
             </div>
         )
     }

@@ -6,6 +6,7 @@ import { ReducersList } from "../../../lib/components/DynamicReducerLoader/Dynam
 import { articleDetailsReducer } from "entities/Article/model/slice/articleDetailsSlice";
 import { addCommentFormReducer } from "features/addCommentForm/model/slice/addCommentFormSlice";
 import { articleDetailsCommentsReducer } from "pages/ArticleDetailsPage/model/slice/articleDetailsCommentsSlice";
+import { articlesPageReducer } from "pages/ArticlesPage/model/slice/articlesPageSlice";
 
 
 const defaultAsyncReducers: ReducersList = {
@@ -14,6 +15,7 @@ const defaultAsyncReducers: ReducersList = {
     articleDetails: articleDetailsReducer,
     articleDetailsComments: articleDetailsCommentsReducer,
     addCommentForm: addCommentFormReducer,
+    articlesPage: articlesPageReducer
 
 }
 

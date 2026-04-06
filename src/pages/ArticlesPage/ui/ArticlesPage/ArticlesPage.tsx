@@ -34,12 +34,12 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
     const onViewChange = useCallback((newView: ArticleListView) => {
         dispatch(articlesPageActions.setView(newView))
-    }, [dispatch]) 
+    }, [dispatch]);
 
     useInitialEffect(() => {
         dispatch(fetchArticles());
         dispatch(articlesPageActions.initView());
-    })
+    });
 
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
@@ -60,6 +60,6 @@ const ArticlesPage = (props: ArticlesPageProps) => {
             </div>
         </DynamicReducerLoader>
     );
-}
+};
 
 export default memo(ArticlesPage);

@@ -21,7 +21,7 @@ export const addCommentForArticle = createAsyncThunk<
             const articleData = getArticleDetailsData(getState());
 
             if (!commentText || !userData || !articleData) {
-                return rejectWithValue('INCORRECT_OR_MISSING_DATA');
+                return rejectWithValue('errors.ADD_COMMENT_INCORRECT_OR_MISSING_DATA');
             }
 
             const response = await extra.api?.post<Comment>('/comments', {
@@ -38,7 +38,7 @@ export const addCommentForArticle = createAsyncThunk<
 
             return response.data;
         } catch (error) {
-            return rejectWithValue('REQUEST_FAILED');
+            return rejectWithValue('errors.ADD_COMMENT_REQUEST_FAILED');
         }
     }
 )

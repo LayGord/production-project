@@ -28,7 +28,7 @@ createAsyncThunk<
             return response.data;
 
         } catch (error) {
-            return rejectWithValue('error');
+            return rejectWithValue('errors.FAILED_TO_FETCH_ARTICLES');
         }
     }
 )

@@ -1,6 +1,7 @@
 {
     "read": "Читать далее...",
     "errors": {
-        "emptyArticle": "Статья не найдена...("
+        "ARTICLE_NOT_FOUND": "Статья не найдена...(",
+        "FAILED_TO_FETCH_ARTICLES": "Не удалось получить список статей...("
     }
 }

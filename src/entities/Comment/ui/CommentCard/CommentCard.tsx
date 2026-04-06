@@ -35,6 +35,7 @@ export const CommentCard = (props: CommentCardProps) => {
                     src={comment?.user.avatarUrl || '' }
                     size={30}
                     theme={AvatarTheme.ROUNDED}
+                    border={false}
                 />
                 <Text
                     title={comment?.user.username}

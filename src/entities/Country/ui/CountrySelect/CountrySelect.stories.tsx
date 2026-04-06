@@ -6,7 +6,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { SelectTheme } from 'shared/ui/Select/Select';
 
 export default {
-    title: 'entities/CountrySelect',
+    title: 'entities/Country/CountrySelect',
     component: CountrySelect,
     argTypes: {
         backgroundColor: { control: 'color' },

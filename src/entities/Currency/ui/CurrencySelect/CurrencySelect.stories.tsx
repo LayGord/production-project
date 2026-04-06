@@ -6,7 +6,7 @@ import { SelectTheme } from 'shared/ui/Select/Select';
 import { Theme } from 'app/providers/ThemeProvider';
 
 export default {
-    title: 'entities/CurrencySelect',
+    title: 'entities/Currency/CurrencySelect',
     component: CurrencySelect,
     argTypes: {
         backgroundColor: { control: 'color' },

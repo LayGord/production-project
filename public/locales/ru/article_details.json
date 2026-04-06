@@ -1,7 +1,12 @@
 {
     "backLink": "<< Назад к статьям",
-    "incorrectId": "ID статьи передан неверно или отсутствует",
-    "failedToFetchArticle": "Ошибка во время загрузки данной статьи :(",
     "commentsBlock": "Комментарии",
-    "emptyCommentList": "Комментариев пока нет"
+    "emptyCommentList": "Комментариев пока нет",
+    "errors": {
+        "INCORRECT_ARTICLE_ID": "Передан неверный ID статьи",
+        "FAILED_TO_FETCH_ARTICLE": "Ошибка во время загрузки данной статьи :(",
+        "FAILED_TO_FETCH_ARTICLE_COMMENTS": "Ошибка при загрузке комменатриев",
+        "ADD_COMMENT_INCORRECT_OR_MISSING_DATA": "Отсутствует текст комментария, данные пользователя или что-то другое ...",
+        "ADD_COMMENT_REQUEST_FAILED": "Ошибка при отправке комментария"
+    }
 }

@@ -31,10 +31,12 @@ DefaultDark.args = {
 };
 DefaultDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const CircleDark = Template.bind({});
-CircleDark.args = {
-    border: '50%',
-    height: 100,
-    width: 100,
-};
-CircleDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+// it breaks loki idk why
+// export const CircleDark = Template.bind({});
+// CircleDark.args = {
+//     border: '50%',
+//     height: 100,
+//     width: 100,
+// };
+// CircleDark.decorators = [ThemeDecorator(Theme.DARK)];

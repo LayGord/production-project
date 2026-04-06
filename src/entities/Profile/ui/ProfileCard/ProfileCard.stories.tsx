@@ -21,7 +21,7 @@ const profileData: Profile = {
 }
 
 export default {
-    title: 'entities/ProfileCard',
+    title: 'entities/Profile/ProfileCard',
     component: ProfileCard,
     argTypes: {
         backgroundColor: { control: 'color' },
